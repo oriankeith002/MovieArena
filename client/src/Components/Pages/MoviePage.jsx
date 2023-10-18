@@ -20,7 +20,20 @@ const MoviePage = () => {
         </div>
       </div>
       <div className='plot-summary-section'>
-        <div className='uploaded-by-and-date'></div>
+        <h2>Plot</h2>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur 
+          adipisicing elit. Deleniti enim necessitatibus 
+          eaque itaque repellendus tempora molestias 
+          doloremque reiciendis, nam ducimus officiis 
+          esse voluptatum quod fugit earum saepe facilis 
+          ipsum nobis repellat deserunt, suscipit eos ad eveniet. Veritatis autem cumque numquam corrupti, minima quisquam sed repudiandae officia aperiam quos amet repellat.
+        </p>
+
+        <div className='uploaded-by-and-date'>
+          <div><em>Uploaded By </em> : Orian keith <br/></div>
+          <div><em>Date </em> : 15th October 2023</div>
+        </div>
       </div>
       <div className='comment-container'>
         <div className='comment-count'></div>

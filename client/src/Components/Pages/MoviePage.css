@@ -4,4 +4,67 @@
     background-color: black;
     color: #fff;
     
+} 
+
+.two-column-section, .four-other-movies {
+    margin-bottom: 2rem;
+} 
+
+.four-other-movies {
+    display: none;
 }
+
+
+@media screen and (min-width:882px) {
+    .two-column-section {
+        display:flex;
+        justify-content: space-between;
+        flex-wrap:wrap;
+        background-color: blue;
+    }
+
+    .selected-movie-info, .four-other-movies {
+        flex: 0 0 calc(50% - 2rem);
+        margin-bottom: 0;
+        align-self: center;
+    } 
+
+    .selected-movie-info {
+        background-color: red;
+    } 
+
+    .four-other-movies {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap:wrap;
+    }
+
+    
+}
+
+
+/* 
+@media screen and (min-width: 768px) {
+    /* .movie-page-container {
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    } */
+
+    /* .two-column-section {
+        background-color: red;
+        display: flex;
+        justify-content: space-between;
+        flex: 0  calc(50% -2rem);
+    }
+    
+    .selected-movie-info {
+        background-color: aqua;
+    }
+
+    .four-other-movies {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+} */ 

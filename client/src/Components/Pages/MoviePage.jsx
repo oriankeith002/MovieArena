@@ -5,10 +5,19 @@ import MovieThumbnail from './MovieThumbnail'
 const MoviePage = () => {
   return (
     <div className='movie-page-container'>
-      <div className='two-colum-section'>
-        <MovieThumbnail />
-        <div className='movie-info-and-thumbnail'>thumbnail</div>
-        <div className='four-other-movies'></div>
+      <div className='two-column-section'>
+
+        <div className='selected-movie-info'>
+          <MovieThumbnail />
+          <div className='movie-info-and-thumbnail'>thumbnail</div>
+        </div>
+          
+        <div className='four-other-movies'>
+          <MovieThumbnail style={{width:105, height: 157}}/>
+          <MovieThumbnail style={{width:105, height: 157}}/>
+          <MovieThumbnail style={{width:105, height: 157}}/>
+          <MovieThumbnail style={{width:105, height: 157}}/>
+        </div>
       </div>
       <div className='plot-summary-section'>
         <div className='uploaded-by-and-date'></div>

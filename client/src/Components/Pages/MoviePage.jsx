@@ -35,13 +35,14 @@ const MoviePage = () => {
           <div><em>Date </em> : 15th October 2023</div>
         </div>
       </div>
-      <div className='comment-container'>
+      <div className='comment-container'> 
+      comments here
         <div className='comment-count'></div>
         <div className='comment-box'>
           <div className='main-comment-box'>
             <div>
               {/* this is a flex box kind of thing or grid  */}
-              <div className='commenter-name-initials'></div>
+              <div className='commenter-name-initials'>AJ</div>
               <div className='commenter-full-name'></div>
               <div className='comment-made-at-time'></div>
             </div>

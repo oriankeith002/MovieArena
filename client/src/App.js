@@ -13,10 +13,10 @@ axios.defaults.withCredentials = true
 function App() {
   return (
     <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
       <Route path='/' element={<Layout />}>
         <Route index element={<Landing />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
         <Route path="/movie/:id" element={<MoviePage />} />
       </Route>
     </Routes>

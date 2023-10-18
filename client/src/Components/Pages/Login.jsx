@@ -1,11 +1,11 @@
 import React from 'react'
 import CustomInput from '../CustomComponents/CustomInput'
 import { Link } from 'react-router-dom'
-import './Login.css'
+import './Auth.css'
 
 const Login = () => {
   return (
-    <div>
+    <div className='dark-closure'>
       <div className='container'>
         <div className='headings'>
           <h3>Login</h3>

@@ -1,8 +1,9 @@
+import './Header.css';
 
 const Header = () => {
 
     return (
-        <header className="">
+        <header className="header-container">
             Header section
         </header>
     )

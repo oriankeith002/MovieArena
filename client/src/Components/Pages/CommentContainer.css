@@ -1,0 +1,21 @@
+
+.comment-box {
+    margin: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.comment-img {
+    width:80px;
+    height:80px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.comment-info p {
+    margin-top: 5px;
+    color: #555;
+    line-height: 1.3;
+}

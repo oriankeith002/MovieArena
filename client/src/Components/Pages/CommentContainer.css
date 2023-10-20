@@ -1,11 +1,14 @@
 
 .comment-box {
-    margin: 50px;
+    /* margin: 30px; */
+    margin-top: 20px;
+    padding: 10px;
     display: flex;
     align-items: center;
+    background-color: #171717;
 }
 
-.comment-img {
+.commentor-img {
     width:80px;
     height:80px;
     object-fit: cover;
@@ -16,6 +19,16 @@
 
 .comment-info p {
     margin-top: 5px;
-    color: #555;
+    color: #fff;
     line-height: 1.3;
+}
+
+.comment-info h3 {
+    display: inline;
+    margin-right: 15px;
+    color:#555;
+}
+
+.comment-info span {
+    color: #555;
 }

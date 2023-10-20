@@ -1,16 +1,29 @@
-import { PrismaClient } from '@prisma/client';
+const prisma = require('../services/prisma');
 const asyncHandler = require('express-async-handler');
+const bcrypt = require('bcryptjs');
 
-
+// generate a password salt
+const bcryptSalt = bcrypt.genSaltSync(10);
 
 const create = asyncHandler(async(req,res) => {
-    const email = req.body.email;
+    const data = req.body;
+    const {email} = data;
     // check if user provided email exists in the database 
-    // const foundUser = '';
+    const foundUser = await prisma.user.findUnique({
+        where: {
+            email:email,
+        },
+    })
 
+    // Hashing user input password
+    data.password = bcrypt.hashSync(data.password, bcryptSalt)
 
-    if(!foundUser) {
+    console.log(data) // check the data object
 
+    if (!foundUser) {
+        const newUser = await prisma.user.create({
+            data:data
+        }) 
     } else {
         throw new Error('User with email already exists')
     }
@@ -22,6 +35,7 @@ const create = asyncHandler(async(req,res) => {
 const getAllUsers = asyncHandler(async(req,res) => {
     try {
         // returning all users in database in variable 
+        const users = await prisma.user.findMany();
 
     } catch(error) {
         throw new Error(error)

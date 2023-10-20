@@ -1,4 +1,3 @@
-import { PrismaClient } from '@prisma/client';
 const asyncHandler = require('express-async-handler');
 
 

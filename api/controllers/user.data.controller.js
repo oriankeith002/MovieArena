@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 // generate a password salt
 const bcryptSalt = bcrypt.genSaltSync(10);
 
-const create = asyncHandler(async(req,res) => {
+const createUser = asyncHandler(async(req,res) => {
     const data = req.body;
     const {email} = data;
     // check if user provided email exists in the database 
@@ -24,6 +24,7 @@ const create = asyncHandler(async(req,res) => {
         const newUser = await prisma.user.create({
             data:data
         }) 
+        res.json(newUser);
     } else {
         throw new Error('User with email already exists')
     }
@@ -79,7 +80,7 @@ const updateAUser = asyncHandler(async(req,res) => {
 
 
 module.exports = {
-    
+    createUser,
     getAllUsers,
     getAUser,
     deleteUser,

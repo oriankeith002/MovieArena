@@ -30,11 +30,8 @@ const createUser = asyncHandler(async(req,res) => {
     }
 })
 
-
-
 // get all users from database
 const getAllUsers = asyncHandler(async(req,res) => {
-
     try {
         // returning all users in database in variable 
         const users = await prisma.user.findMany({
@@ -70,14 +67,21 @@ const getAUser = asyncHandler(async(req,res) => {
 
 // Delete a single user from database 
 const deleteUser = asyncHandler(async(req,res) => {
-    const {id} = req.params;
-
+    const {email} = req.body;
     try {
-        // deleting user using id
+        const user = await prisma.user.delete({
+            where: {
+                email:email,
+            }
+        })
+        res.json({
+            message:`user of ${email} has been deleted`
+        })
     } catch(error) {
         throw new Error(error) 
     }
 }) 
+
 
 // Updating a user 
 

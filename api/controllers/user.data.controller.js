@@ -18,13 +18,13 @@ const createUser = asyncHandler(async(req,res) => {
     // Hashing user input password
     data.password = bcrypt.hashSync(data.password, bcryptSalt)
 
-    console.log(data) // check the data object
-
     if (!foundUser) {
         const newUser = await prisma.user.create({
             data:data
         }) 
-        res.json(newUser);
+        res.json({ 
+            message: `User ${data.name} created.`
+        });
     } else {
         throw new Error('User with email already exists')
     }
@@ -34,9 +34,22 @@ const createUser = asyncHandler(async(req,res) => {
 
 // get all users from database
 const getAllUsers = asyncHandler(async(req,res) => {
+
     try {
         // returning all users in database in variable 
-        const users = await prisma.user.findMany();
+        const users = await prisma.user.findMany({
+            select: {
+                id:true,
+                email:true,
+                name:true,
+            }
+        });
+
+        res.status(200).json({
+            status:true,
+            message: 'All Registered Users',
+            data: users
+        })
 
     } catch(error) {
         throw new Error(error)

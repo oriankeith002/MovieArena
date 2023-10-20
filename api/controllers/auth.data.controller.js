@@ -17,17 +17,13 @@ const login = asyncHandler(async(req,res) => {
         },
     })
 
-
     if (user) {
         // check if password is okay 
         const passOk = bcrypt.compareSync(password,user.password)
-
-        if (passOk) {
-        
+        if (passOk) {  
             // generate accesstoken
             const accessToken = generateToken({email:user.email,id:user.id})
-
-            res.cookie('token',accessToken).json(user)
+            res.cookie('token',accessToken).json({...user,accessToken})
 
         } else {
             throw new Error('Invalid Credentials')

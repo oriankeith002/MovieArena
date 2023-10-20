@@ -58,6 +58,12 @@ const getAUser = asyncHandler(async(req,res) => {
     const {id} = req.params;
     try {
         // returning single user details here. 
+        const user = await prisma.user.findUnique({
+            where: {
+                id:id,
+            }
+        })
+        res.json(user)
 
     } catch(error) {
         throw new Error(error)

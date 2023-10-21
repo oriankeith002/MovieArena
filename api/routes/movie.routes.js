@@ -3,8 +3,8 @@ const express = require('express');
 const router = express.Router();
 
 
-router.post('/', movieCtrl.createMovie);
-router.get('/', movieCtrl.getAllMovies);
+router.post('/create-movie', movieCtrl.createMovie);
+router.get('/allmovies', movieCtrl.getAllMovies);
 router.get('/:id', movieCtrl.getAMovie);
 router.put('/:id', movieCtrl.updateAMovie);
 router.delete('/:id', movieCtrl.deleteMovie);

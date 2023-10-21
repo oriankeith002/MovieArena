@@ -96,9 +96,20 @@ const deleteUser = asyncHandler(async(req,res) => {
 // Updating a user 
 
 const updateAUser = asyncHandler(async(req,res) => {
-    const {id} = req.user;
+    const {id} = req.params; //change to user 
 
     try {
+        const user = await prisma.user.update({
+            where: {
+                id:id,
+            },
+            data: req.body,
+            select:{
+                email: true,
+                name:true,
+            }
+        })
+        res.json(user)
 
     } catch(error) {
         throw new Error(error);

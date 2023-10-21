@@ -39,7 +39,8 @@ const getAllUsers = asyncHandler(async(req,res) => {
                 id:true,
                 email:true,
                 name:true,
-            }
+                movies:true
+            },
         });
 
         res.status(200).json({
@@ -65,7 +66,8 @@ const getAUser = asyncHandler(async(req,res) => {
             select:{
                 email: true,
                 name:true,
-            }
+                movies:true,
+            },
         })
         res.json(user)
 

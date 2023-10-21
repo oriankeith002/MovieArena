@@ -9,11 +9,33 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
-
-
 model User {
   id String @id @default(cuid())
   email String @unique
   name String?
   password String?
+  movies Movie[] @relation("UserMovies")
+
+} 
+
+model Movie {
+  id Int @id @default(autoincrement())
+  title String
+  releaseYear String
+  rating Int?
+  plot String @db.LongText
+  uploaderId String
+  uploader User @relation("UserMovies",fields: [uploaderId], references: [id], onDelete: Cascade)
+  genres Genre[] @relation("MovieGenres")
+  releaseDate DateTime?
+  uploadedAt DateTime @default(now()) @db.Timestamp()
+
 }
+
+model Genre {
+  id Int @id @default(autoincrement())
+  name String @unique
+  movies Movie[] @relation("MovieGenres")
+
+}
+

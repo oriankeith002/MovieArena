@@ -47,7 +47,7 @@ We have a users table and a movies table
 - [ ] Movie Model 
 - [ ] User Model 
 - [ ] Genre Model
-a
+
  
 
 After defining the models of your choice, you can perform an initial migration with 

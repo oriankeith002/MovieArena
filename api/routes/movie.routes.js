@@ -8,5 +8,6 @@ router.get('/allmovies', movieCtrl.getAllMovies);
 router.get('/:id', movieCtrl.getAMovie);
 router.put('/:id', movieCtrl.updateAMovie);
 router.delete('/:id', movieCtrl.deleteMovie);
+router.post('/create-genre', movieCtrl.createGenre);
 
 module.exports = router;

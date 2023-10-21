@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler');
-
+const prisma = require('../services/prisma');
 
 
 const createMovie = asyncHandler(async(req,res) => {
@@ -8,7 +8,19 @@ const createMovie = asyncHandler(async(req,res) => {
 
     try {
         const movie = await prisma.movie.create({
-            data:movieData
+            data:{
+                title:movieData.title,
+                releaseDate:new Date(movieData.releaseDate),
+                releaseYear:movieData.releaseYear,
+                rating:movieData.rating,
+                plot:movieData.plot,
+                uploaderId:movieData.uploaderId,
+                genres:{
+                    connect: movieData.genres.map(genre => ({
+                        name:genre
+                    }))
+                }
+            }
         })
         res.json(movie)
 
@@ -41,7 +53,7 @@ const getAMovie = asyncHandler(async(req,res) => {
         // returning single movie details here. 
         const singleMovie = await prisma.movie.findUnique({
             where:{
-                id:id,
+                id:+id,
             }
         })
         res.json(singleMovie)
@@ -60,7 +72,7 @@ const deleteMovie = asyncHandler(async(req,res) => {
         // deleting movie using id
         const movieToDelete = await prisma.movie.delete({
             where: {
-                id:id,
+                id:+id,
             }
         })
         res.json({
@@ -80,7 +92,7 @@ const updateAMovie = asyncHandler(async(req,res) => {
     try {
         const movieToUpdate = await prisma.movie.update({
             where: {
-                id:id,
+                id:+id,
             },
             data: req.body,
             
@@ -91,6 +103,19 @@ const updateAMovie = asyncHandler(async(req,res) => {
     }
 })
 
+const createGenre = asyncHandler(async(req,res) => {
+    const genreData = req.body; 
+    try {
+        const genre = await prisma.genre.create({
+            data:genreData
+        })
+        res.json(genre)
+    } catch(error) {
+        throw new Error(error)
+    }
+})
+
+
 // patching a movie 
 
 module.exports = {
@@ -99,4 +124,6 @@ module.exports = {
     getAMovie,
     deleteMovie,
     updateAMovie,
+    createGenre
+
 }

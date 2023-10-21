@@ -76,7 +76,7 @@ const deleteMovie = asyncHandler(async(req,res) => {
             }
         })
         res.json({
-            message:`Movie ${movieToDelete.title} uploaded by ${movieToDelete.uploader} has been deleted`,
+            message:`Movie ${movieToDelete.title} has been deleted`,
             data:null
         })
     } catch(error) {

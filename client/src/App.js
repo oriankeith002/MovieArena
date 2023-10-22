@@ -1,11 +1,10 @@
 import axios from 'axios';
 import {Routes, Route} from 'react-router-dom';
-import Landing from './Components/Pages/Landing';
 import Layout from './Components/Layout/Layout';
 import Login from './Components/Pages/UserAuthPages/Login';
 import Register from './Components/Pages/UserAuthPages/Register';
 import MoviePage from './Components/Pages/MovieDetail/MoviePageDetail/MoviePage';
-
+import Landing from './Components/Pages/LandingPage/Landing';
 
 axios.defaults.baseURL = 'http://localhost:4000';
 axios.defaults.withCredentials = true

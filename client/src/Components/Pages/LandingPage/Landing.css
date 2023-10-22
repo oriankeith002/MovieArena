@@ -1,6 +1,7 @@
 .landing-page-container {
+    margin-top: 80px;
     min-height: calc(100vh - 70px);
-    display:flex;
-    /* padding: 0 calc(3.5vw + 5px); */
+    /* display:flex; */
+    color:white;
     
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Landing.css';
+import ImageSlider from './ImageSlider/ImageSlider';
 
 const Landing = () => {
   return (

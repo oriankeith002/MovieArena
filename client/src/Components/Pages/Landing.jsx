@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import './Landing.css';
 
 const Landing = () => {
   return (
-    <div>Landing</div>
+    <main className='landing-page-container'>
+      Landing
+    </main>
   )
 }
 

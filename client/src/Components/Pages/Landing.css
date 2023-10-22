@@ -1,0 +1,6 @@
+.landing-page-container {
+    min-height: calc(100vh - 70px);
+    display:flex;
+    /* padding: 0 calc(3.5vw + 5px); */
+    
+}

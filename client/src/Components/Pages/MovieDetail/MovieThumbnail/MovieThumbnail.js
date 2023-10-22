@@ -1,5 +1,5 @@
 import React from 'react'
-import Thumb from '../assets/test.jpg'
+import Thumb from '../../../assets/test.jpg'
 import './MovieThumbnail.css'
 
 const MovieThumbnail = (props) => { 

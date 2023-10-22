@@ -1,9 +1,9 @@
 import React from 'react'
 import './MoviePage.css'
-import MovieThumbnail from './MovieThumbnail'
-import CommentContainer from './CommentContainer'
-import prof from '../assets/images.jpg'
+import CommentContainer from '../Comment/CommentContainer'
+import prof from '../../../assets/images.jpg'
 
+import MovieThumbnail from '../MovieThumbnail/MovieThumbnail'
 
 const MoviePage = () => {
   let DateTest = new Date();

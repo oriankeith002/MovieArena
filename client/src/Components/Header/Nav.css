@@ -1,6 +1,7 @@
 
 .nav-bar {
-    height: 70px;
+    height: 100%;
+    max-height: 70px;
     background:#090b13;
     display: flex;
     align-items: center;
@@ -9,7 +10,8 @@
     position: fixed;
     top:0;
     left:0;
-    width: 100%;
+    width: 100vw;
     color:white;
+    z-index:4;
 }
 

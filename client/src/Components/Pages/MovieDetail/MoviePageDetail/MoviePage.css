@@ -2,7 +2,6 @@
     margin-top: 80px;
     max-width: 100vw;
     min-height: calc(100vh - 80px);
-    /* background-color: #1d1d1d; */
     color: #fff;   
     display: flex;
     flex-direction: column;
@@ -44,10 +43,6 @@
 
 
 @media screen and (max-width:882px) {
-/* 
-    .selected-movie-info, .four-other-movies {
-        position: relative;
-    } */
 
     .selected-movie-info {
         display:flex;
@@ -73,41 +68,21 @@
     }
 }
 
-.two-column-section, .four-other-movies {
+.two-column-section{
     margin-bottom: 2rem;
 } 
-
-.four-other-movies {
-    display: none;
-}
 
 
 @media screen and (min-width:882px) {
 
-    .two-column-section {
+    .two-column-section .selected-movie-info{
         display:flex;
         justify-content: space-between;
-        flex-wrap:wrap;
-        /* background-color: blue; */
     }
 
-    .selected-movie-info, .four-other-movies {
-        flex: 0 0 calc(50% - 2rem);
-        margin-bottom: 0;
-        align-self: center;
-    } 
-
-    .selected-movie-info {
-        /* background-color: red; */
-    } 
-
-    .four-other-movies {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap:wrap;
+    .movie-info {
+        margin: auto;
     }
-
-    
 } 
 
 
@@ -117,6 +92,7 @@
 
 .plot-summary-section {
     margin: 30px;
+    max-width: 700px;
 }
 
 .plot-summary-section .uploader  a {
@@ -140,3 +116,7 @@
 .add-comment-btn {
     margin-top: 10px;
 } 
+
+.the-movie-section {
+    margin: 30px;
+}

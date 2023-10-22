@@ -38,15 +38,7 @@ const MoviePage = () => {
               <h2>Action/Drama/Thriller</h2>
             </div>
           </div>
-            
-          <div className='four-other-movies'>
-            <MovieThumbnail style={{width:105, height: 157}}/>
-            <MovieThumbnail style={{width:105, height: 157}}/>
-            <MovieThumbnail style={{width:105, height: 157}}/>
-            <MovieThumbnail style={{width:105, height: 157}}/>
-          </div>
         </div>
-        <div className="movie-bg"></div>
       </section>
     
 

@@ -4,11 +4,9 @@
     margin-top: 20px;
     padding: 10px;
     display: flex;
-    align-items: left;
-    justify-content: left;
+    align-items: center;
     background-color: #171717;
-    max-width: 900px;
-    background-color: yellowgreen;
+    max-width: 700px;
 
 } 
 
@@ -19,9 +17,8 @@
 
 .comment-info .horizontal-header {
     display: flex;
-    justify-content: left;
-    align-items: left;
-    background-color: red;
+    align-items: center;
+    /* background-color: red; */
 }
 
 @media screen and (max-width:400px) {
@@ -38,9 +35,9 @@
     .comment-info .horizontal-header {
         display:flex;
         flex:1;
-        justify-content: left;
-        align-items: left;
-        background-color: blue;
+        /* justify-content: center; */
+        align-items: center;
+        /* background-color: blue; */
     }
 }
 

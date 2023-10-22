@@ -3,7 +3,7 @@ import './UserProfDetail.css';
 
 const UserProfDetail = ({src}) => {
   return (
-    <img src={src} alt='user-profile-img' />
+    <img src={src} alt='user-profile-img' className='nav-img' />
   )
 }
 

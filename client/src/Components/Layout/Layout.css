@@ -1,5 +1,8 @@
 
 .layout {
+    margin:0;
+    max-width: 100vw;
+    max-height: 100vh;
     display:flex;
     flex-direction: column;
     align-items: flex-start;

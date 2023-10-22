@@ -4,15 +4,51 @@
     margin-top: 20px;
     padding: 10px;
     display: flex;
-    align-items: center;
+    align-items: left;
+    justify-content: left;
     background-color: #171717;
+    max-width: 900px;
+    background-color: yellowgreen;
+
+} 
+
+.comment-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-info .horizontal-header {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    background-color: red;
+}
+
+@media screen and (max-width:400px) {
+
+    .comment-info .horizontal-header{
+        display:flex;
+        flex-direction: column;
+
+    }
+    
+} 
+
+@media screen and (min-width:600px) {
+    .comment-info .horizontal-header {
+        display:flex;
+        flex:1;
+        justify-content: left;
+        align-items: left;
+        background-color: blue;
+    }
 }
 
 .commentor-img {
     width:80px;
     height:80px;
     object-fit: cover;
-    border-radius: 100%;
+    border-radius: 50%;
     margin-right: 15px;
     flex-shrink: 0;
 }
@@ -21,6 +57,7 @@
     margin-top: 5px;
     color: #fff;
     line-height: 1.3;
+    font-size: 12px;
 }
 
 .comment-info h3 {

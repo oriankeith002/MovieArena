@@ -3,7 +3,7 @@ import './Logo.css';
 
 const Logo = ({src}) => {
   return (
-    <img src={src} alt="site-log" />
+    <img src={src} alt="site-log" className='site-logo' />
   )
 }
 

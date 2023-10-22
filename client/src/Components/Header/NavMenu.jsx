@@ -4,7 +4,7 @@ import './NavMenu.css';
 
 const NavMenu = (props) => {
   return (
-    <div>
+    <div className='nav-menu'>
         {props.children}
     </div>
   )

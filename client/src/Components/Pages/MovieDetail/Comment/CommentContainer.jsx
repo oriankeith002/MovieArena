@@ -7,8 +7,10 @@ const CommentContainer = (props) => {
     <div className="comment-box">
         <img src={c_img} alt='commentor_photo' className='commentor-img' />
         <div className='comment-info'>
-            <h3>Jameson Rwakaka</h3> 
-            <span>{comment_date}</span>
+            <div className='horizontal-header'>
+              <h3>Jameson Rwakaka</h3> 
+              <span span>{comment_date}</span>
+            </div>
             <p>
                 Lorem ipsum dolor sit amet 
                 consectetur adipisicing elit. 

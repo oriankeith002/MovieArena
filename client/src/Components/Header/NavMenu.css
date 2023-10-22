@@ -1,12 +1,12 @@
 
-div {
+.nav-menu {
     display: flex;
     flex: 1;
     margin-left: 25px;
     align-items: center;
 }
 
-div a {
+.nav-menu a {
     display:flex;
     align-items: center;
     padding: 0 12px;
@@ -14,11 +14,11 @@ div a {
     text-decoration: none;
 } 
 
-div a img {
+.nav-menu a img {
     height: 20px;
 } 
 
-div a span {
+.nav-menu a span {
     font-size:13px;
     letter-spacing: 1.42px;
     position: relative;
@@ -26,7 +26,7 @@ div a span {
     color: white;
 }
 
-div a span::after {
+.nav-menu a span::after {
     content: "";
     height: 2px;
     background: white;
@@ -41,7 +41,7 @@ div a span::after {
 }
 
 
-div a:hover span::after {
+.nav-menu a:hover span::after {
     opacity: 1;
     transform: scaleX(1);
 } 

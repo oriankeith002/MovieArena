@@ -4,7 +4,7 @@ import './Nav.css';
 
 const Nav = (props) => {
   return (
-    <nav>{props.children}</nav>
+    <nav className='nav-bar'>{props.children}</nav>
   )
 }
 

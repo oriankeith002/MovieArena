@@ -99,7 +99,7 @@ const deleteUser = asyncHandler(async(req,res) => {
 // Updating a user 
 
 const updateAUser = asyncHandler(async(req,res) => {
-    const {id} = req.params; //change to user 
+    const {id} = req.user; //change to user 
 
     try {
         const user = await prisma.user.update({

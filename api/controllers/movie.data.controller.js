@@ -1,5 +1,8 @@
 const asyncHandler = require('express-async-handler');
 const prisma = require('../services/prisma');
+const jwt = require('jsonwebtoken');
+const download = require('image-downloader');
+const config = require('../config/config')
 
 
 const createMovie = asyncHandler(async(req,res) => {
@@ -114,6 +117,19 @@ const createGenre = asyncHandler(async(req,res) => {
         throw new Error(error)
     }
 })
+
+
+const uploadByLink = asyncHandler(async(req,res) => {
+    const {link} = req.body;
+    const newName = 'photo' + Date.now() + '.jpg'
+    await download.image({
+        url: link,
+        dest: config.path + 'api/uploads' + newName
+    })
+
+    res.json(newName);
+})
+
 
 
 // patching a movie 

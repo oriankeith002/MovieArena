@@ -23,9 +23,17 @@ const MovieForm = () => {
   useEffect(() => {
     if(!id){
       return;
-    }
+    } 
+    // retuning data from server to populate form when editing
     axios.get('/movies/'+id).then(response => {
       const {data} = response;
+      setTitle(data.title);
+      setThumbnail(data.thumbnail);
+      setRating(data.rating)
+      setGenres(data.genres)
+      setReleaseDate(data.releaseDate)
+      setReleaseYear(data.releaseYear)
+      setPlot(data.plot)
     })
   },[id])
 

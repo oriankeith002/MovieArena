@@ -1,13 +1,18 @@
 const movieCtrl = require('../controllers/movie.data.controller');
+const {authMiddleware} = require('../middlewares/authMiddleware');
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
 
 
-router.post('/create-movie', movieCtrl.createMovie);
+const photosMiddleware = multer({dest:'uploads/'})
+
+router.post("/upload-by-link",authMiddleware, movieCtrl.uploadByLink);
+router.post('/create-movie',authMiddleware, movieCtrl.createMovie);
 router.get('/allmovies', movieCtrl.getAllMovies);
 router.get('/:id', movieCtrl.getAMovie);
-router.put('/:id', movieCtrl.updateAMovie);
-router.delete('/:id', movieCtrl.deleteMovie);
+router.put('/:id',authMiddleware, movieCtrl.updateAMovie);
+router.delete('/:id',authMiddleware, movieCtrl.deleteMovie);
 router.post('/create-genre', movieCtrl.createGenre);
 
 module.exports = router;

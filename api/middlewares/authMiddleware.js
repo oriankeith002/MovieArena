@@ -1,28 +1,40 @@
-const prisma = require('../services/prisma');
-const asyncHandler = require('express-async-handler');
 const config = require('../config/config');
 const jwt = require('jsonwebtoken');
-
+const prisma = require('../services/prisma');
+const asyncHandler = require('express-async-handler');
 
 const authMiddleware = asyncHandler(async(req,res,next) => {
-    let token;
+    const {token} = req.cookies;
 
-    if (req?.headers?.authorization?.startsWith("Bearer")){
-
-        token = req.headers.authorization.split(" ")[1];
-
+    if(token) {
         try {
-            if(token) {
-                const decodedToken = jwt.verify(token,config.jwtSecret);
-                console.log(decodedToken)
-            }
-        } catch(error) {
+            const decodedToken = jwt.verify(token, config.jwtSecret);
+            // console.log(decodedToken)
+
+            // extract the need user info 
+            const user = await prisma.user.findUnique({
+                where: {
+                    email:decodedToken?.token
+                },
+                select:{
+                    name:true,
+                    email:true,
+                    id:true
+
+                }
+            }) 
+
+            req.user = user; // making req.user container our user detail. 
+            next()
+
+        }catch(error) {
             throw new Error("Invalid Token. Login required again")
         }
+
     } else {
-        throw new Error("Missing authentication token on header")
+        throw new Error("Missing authentication details")
     }
-}) 
+})
 
 
 module.exports = authMiddleware

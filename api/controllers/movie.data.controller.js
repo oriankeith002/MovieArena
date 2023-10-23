@@ -132,7 +132,24 @@ const uploadByLink = asyncHandler(async(req,res) => {
 
 
 
-// patching a movie 
+
+// return movies belong to a logged in user 
+
+const userMoviesView = asyncHandler(async(req,res) => {
+    const {id} = req.user;
+    
+    const userAddedMovies = await prisma.movie.findMany({
+        where:{
+            uploaderId:id,
+        }
+    })
+
+    res.json(userAddedMovies)
+})
+
+
+
+
 
 module.exports = {
     createMovie,
@@ -140,6 +157,8 @@ module.exports = {
     getAMovie,
     deleteMovie,
     updateAMovie,
-    createGenre
+    createGenre,
+    uploadByLink,
+    userMoviesView,
 
 }

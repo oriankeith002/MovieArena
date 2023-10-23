@@ -14,5 +14,6 @@ router.get('/:id', movieCtrl.getAMovie);
 router.put('/:id',authMiddleware, movieCtrl.updateAMovie);
 router.delete('/:id',authMiddleware, movieCtrl.deleteMovie);
 router.post('/create-genre', movieCtrl.createGenre);
+router.get('user-movies',authMiddleware,movieCtrl.userMoviesView);
 
 module.exports = router;

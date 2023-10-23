@@ -1,12 +1,14 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import axios from 'axios';
 import {useParams} from 'react-router';
+import { UserContext } from '../../SupportUtilities/UserContext';
 import GenreCamp from './GenreCamp';
 import ThumbnailUploader from './ThumbnailUploader';
 import './MovieForm.css';
 
 const MovieForm = () => {
 
+  const {user} = useContext(UserContext) // getting user-profile detail
   const {id} = useParams();
   const [title, setTitle] = useState('');
   const [thumbnail, setThumbnail] = useState([]);
@@ -15,7 +17,8 @@ const MovieForm = () => {
   const [rating, setRating] = useState('');
   const [plot, setPlot] = useState('');
   const [genres, setGenres] = useState([]);
-  const [uploaderId, setUploaderId] = useState('');
+  const [uploaderId, setUploaderId] = useState(''); 
+
 
   function inputHeader(text) {
     return (<h2 className='movie-form-input'>{text}</h2>)
@@ -38,8 +41,27 @@ const MovieForm = () => {
 
   async function saveMovie(event) {
     event.preventDefault();
+    setUploaderId(user.id); // updating uploaderId 
+    const movieData = {
+      title,
+      releaseDate,
+      releaseYear,
+      thumbnail,
+      rating,
+      plot,
+      genres,
+      uploaderId
+    } 
 
-    // const movieData = {}
+    if (id) {
+      // this implies it is an update
+      await axios.put(`/movie/${id}`)
+      // redirect after updating movie to the movies list in user movies
+    } else {
+      // this is a new movie 
+      await axios.post('/movie',movieData) 
+      // redirect here after entering movie data
+    }
   }
 
 

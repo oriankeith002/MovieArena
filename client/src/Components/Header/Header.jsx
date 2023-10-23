@@ -3,7 +3,7 @@ import Nav from './Nav';
 import Logo from './Logo';
 import NavMenu from './NavMenu';
 import UserProfDetail from './UserProfDetail';
-import LogoImage from '../assets/headerAssets/disneyLogo.svg';
+import LogoImage from '../assets/headerAssets/disneyWhite.svg';
 import HomeIcon from '../assets/headerAssets/homeIcon.svg';
 import MoviesIcon from '../assets/headerAssets/movieIcon.svg';
 import SearchIcon from '../assets/headerAssets/searchIcon.svg';

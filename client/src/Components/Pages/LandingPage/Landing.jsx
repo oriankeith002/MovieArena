@@ -1,11 +1,11 @@
 import React from 'react';
 import './Landing.css';
-import ImageSlider from './ImageSlider/ImageSlider';
+import UserAndMoviesCard from './UserAndMoviesCard';
 
 const Landing = () => {
   return (
     <main className='landing-page-container'>
-      Landing
+      <UserAndMoviesCard />
     </main>
   )
 }

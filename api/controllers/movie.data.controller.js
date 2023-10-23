@@ -1,23 +1,26 @@
 const asyncHandler = require('express-async-handler');
 const prisma = require('../services/prisma');
-const jwt = require('jsonwebtoken');
 const download = require('image-downloader');
-const config = require('../config/config')
+const config = require('../config/config');
+const { getUserDataFromRequest } = require('../helpers/jwtToken');
 
 
 const createMovie = asyncHandler(async(req,res) => {
-    
-    const movieData = req.body;
+    const userData = await getUserDataFromRequest(req)
+    const movieData = req.body; 
+
+    console.log(userData.userdata.id)
 
     try {
         const movie = await prisma.movie.create({
             data:{
                 title:movieData.title,
+                thumbnail:movieData.thumbnail,
                 releaseDate:new Date(movieData.releaseDate),
                 releaseYear:movieData.releaseYear,
                 rating:movieData.rating,
                 plot:movieData.plot,
-                uploaderId:movieData.uploaderId,
+                uploaderId:userData.userdata.id,
                 genres:{
                     connect: movieData.genres.map(genre => ({
                         name:genre
@@ -70,20 +73,23 @@ const getAMovie = asyncHandler(async(req,res) => {
 // Delete a single Movie from database 
 const deleteMovie = asyncHandler(async(req,res) => {
     const {id} = req.params;
+    const userData = await getUserDataFromRequest(req)
 
     try {
         // deleting movie using id
         const movieToDelete = await prisma.movie.delete({
             where: {
                 id:+id,
+                uploaderId:userData.userdata.id
             }
         })
+
         res.json({
-            message:`Movie ${movieToDelete.title} has been deleted`,
+            message:`Movie ${movieToDelete.title} belonging to ${userData.name} has been deleted`,
             data:null
         })
     } catch(error) {
-        throw new Error(error) 
+        throw new Error('Ensure that you own the movie') 
     }
 }) 
 
@@ -91,18 +97,23 @@ const deleteMovie = asyncHandler(async(req,res) => {
 
 const updateAMovie = asyncHandler(async(req,res) => {
     const {id} = req.params;
+    const userData = await getUserDataFromRequest(req);
+    const updateData = req.body;
 
     try {
         const movieToUpdate = await prisma.movie.update({
             where: {
                 id:+id,
+                uploaderId:userData.userdata.id
             },
-            data: req.body,
+            data: updateData
             
         })
+        
+        res.json(movieToUpdate)
 
     } catch(error) {
-        throw new Error(error);
+        throw new Error('You do not have the rights to update movie');
     }
 })
 
@@ -133,24 +144,6 @@ const uploadByLink = asyncHandler(async(req,res) => {
 
 
 
-// return movies belong to a logged in user 
-
-const userMoviesView = asyncHandler(async(req,res) => {
-    const {id} = req.user;
-    
-    const userAddedMovies = await prisma.movie.findMany({
-        where:{
-            uploaderId:id,
-        }
-    })
-
-    res.json(userAddedMovies)
-})
-
-
-
-
-
 module.exports = {
     createMovie,
     getAllMovies,
@@ -159,6 +152,5 @@ module.exports = {
     updateAMovie,
     createGenre,
     uploadByLink,
-    userMoviesView,
 
 }

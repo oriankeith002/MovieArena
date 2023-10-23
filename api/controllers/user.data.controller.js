@@ -1,6 +1,7 @@
 const prisma = require('../services/prisma');
 const asyncHandler = require('express-async-handler');
 const bcrypt = require('bcryptjs');
+const { getUserDataFromRequest } = require('../helpers/jwtToken');
 
 // generate a password salt
 const bcryptSalt = bcrypt.genSaltSync(10);
@@ -99,8 +100,8 @@ const deleteUser = asyncHandler(async(req,res) => {
 // Updating a user 
 
 const updateAUser = asyncHandler(async(req,res) => {
-    const {id} = req.user; //change to user 
-
+    const userData = await getUserDataFromRequest(req)
+    const {id} = userData.userdata.id;
     try {
         const user = await prisma.user.update({
             where: {

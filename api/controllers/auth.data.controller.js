@@ -1,7 +1,7 @@
 const prisma = require('../services/prisma');
 const asyncHandler = require('express-async-handler');
 const bcrypt = require('bcryptjs');
-const { generateToken } = require('../helpers/jwtToken');
+const { generateToken, getUserDataFromRequest } = require('../helpers/jwtToken');
 
 // generate a password salt
 const bcryptSalt = bcrypt.genSaltSync(10);
@@ -23,7 +23,9 @@ const login = asyncHandler(async(req,res) => {
         if (passOk) {  
             // generate accesstoken
             const accessToken = generateToken({email:user.email,id:user.id})
-            res.cookie('token',accessToken).json({...user,accessToken})
+            // res.cookie('token',accessToken).json({...user,accessToken})   //remove the json part - here
+            res.cookie('token',accessToken)
+            res.json('Logged in successfully')
 
         } else {
             throw new Error('Invalid Credentials')
@@ -37,25 +39,27 @@ const login = asyncHandler(async(req,res) => {
 
 
 
-const getProfile = asyncHandler(async(req,res) => {
+const getProfile = asyncHandler(async(req,res) => { 
+    const userData = await getUserDataFromRequest(req);
 
-    const {token} = req.cookies;
+    try {
+        const currentProfile = await prisma.user.findUnique({
+            where:{
+                id:userData.userdata.id
+            },
+            select: {
+                name:true,
+                id:true,
+                email:true
+            }
+        }) 
+        console.log(currentProfile)
+        res.json(currentProfile)
 
-    if (token) {
-
-        jwtSecret.verify(token, config.jwtSecret, {}, async(err,userData) => {
-            if (err) throw err;
-            //grad user info from cookie 
-            const {name,email,id} = await prisma.user.findUnique({
-                where: {
-                    email:userData.email
-                }
-            })
-            res.json({name,email, id})
-        })
-    } else {
-        res.json(null);
+    } catch(error) {
+        throw new Error(error)
     }
+
 
 })
 

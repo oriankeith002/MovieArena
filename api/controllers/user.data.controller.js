@@ -54,6 +54,7 @@ const getAllUsers = asyncHandler(async(req,res) => {
     }
 }) 
 
+
 // get a single user from database 
 const getAUser = asyncHandler(async(req,res) => {
     const {id} = req.params;

@@ -23,7 +23,7 @@ const Login = () => {
     try {
       const {data} = axios.post("/user/login", {email,password}) //making a post request to login
       // setUser(data); //updating user context data
-      console.log(data)
+      // console.log(data)
       setRedirect(true);
 
     } catch (error) {

@@ -7,7 +7,7 @@ const multer = require('multer');
 
 const photosMiddleware = multer({dest:'uploads/'})
 
-router.post("/upload-by-link",authMiddleware, movieCtrl.uploadByLink);
+router.post("/upload-by-link", movieCtrl.uploadByLink);
 router.post('/create-movie',authMiddleware, movieCtrl.createMovie);
 router.get('/allmovies', movieCtrl.getAllMovies);
 router.get('/:id', movieCtrl.getAMovie);

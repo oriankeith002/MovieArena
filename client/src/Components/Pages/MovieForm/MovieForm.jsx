@@ -102,7 +102,7 @@ const MovieForm = () => {
             />
 
             {preInput('Movie Image', 'Provide your thumbnail for movie')}
-            <ThumbnailUploader onChange={setThumbnail}/>
+            <ThumbnailUploader addedThumbnails={thumbnail} onChange={setThumbnail}/>
 
 
             {preInput('Release Year', 'Enter movie release year')}

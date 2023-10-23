@@ -21,8 +21,8 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route index element={<Landing />} />
           <Route path="/movie/:id" element={<MoviePage />} />
-          <Route path="/movies/new" element={<MovieForm />} />
-          <Route path="/movies/:id" element={<MovieForm />} />
+          <Route path="/movie/new" element={<MovieForm />} />
+          <Route path="/movie/:id" element={<MovieForm />} />
         </Route>
       </Routes>
   );

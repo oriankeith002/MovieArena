@@ -1,4 +1,5 @@
 import React from 'react'
+import './GenreCamp.css'
 
 const GenreCamp = ({selected, onChange}) => {
 
@@ -15,7 +16,7 @@ const GenreCamp = ({selected, onChange}) => {
   
 
   return (
-    <>
+    <div className='genre-container'>
         <label className='genre-ground'>
             <input 
                 type='checkbox'
@@ -52,7 +53,7 @@ const GenreCamp = ({selected, onChange}) => {
             />
             <span>Romance</span>
         </label>
-    </>
+    </div>
   )
 }
 

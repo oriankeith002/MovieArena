@@ -3,6 +3,7 @@ import axios from 'axios';
 import {useParams} from 'react-router';
 import GenreCamp from './GenreCamp';
 import ThumbnailUploader from './ThumbnailUploader';
+import './MovieForm.css';
 
 const MovieForm = () => {
 
@@ -28,10 +29,10 @@ const MovieForm = () => {
 
   function preInput(header,description) {
     return (
-        <>
+        <div className='form-info-container'>
             {inputHeader(header)}
             {inputDescription(description)}
-        </>
+        </div>
     )
   } 
 
@@ -43,8 +44,8 @@ const MovieForm = () => {
 
 
   return (
-    <div>
-        <form onSubmit={saveMovie}>
+    <div className='movie-form-container'>
+        <form onSubmit={saveMovie} className='movie-form' >
             {preInput('Movie Title', 'Add your movie title here')}
             <input 
                 type="text" 
@@ -89,7 +90,13 @@ const MovieForm = () => {
             <div>
                 <GenreCamp selected={genres} onChange={setGenres} />
             </div>
-
+            <br />
+            <br />
+            <br />
+            <br />
+            <button className='movie-form-sub-btn'>
+              SUBMIT MOVIE
+            </button>
 
         </form>
     </div>

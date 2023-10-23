@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import './ThumbnailUploader.css';
 
 const ThumbnailUploader = ({onChange}) => {
 
@@ -15,8 +16,9 @@ const ThumbnailUploader = ({onChange}) => {
   }
 
   return (
-    <div className="flex gap-2">
+    <div className="uploader-photo-link">
       <input 
+        className='upd-input'
         type="text" 
         value={photoLink} 
         onChange={ev => setPhotoLink(ev.target.value)} 

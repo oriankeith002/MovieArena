@@ -1,0 +1,31 @@
+
+.uploader-photo-link {
+    display: flex;
+    /* flex-direction: row; */
+    width: 100%;
+    /* flex: 1; */
+    /* gap: 2; */
+    
+}
+
+.upd-input {
+    display: flex;
+    flex: 1;
+}
+
+
+
+.upload-btn {
+    padding: 4px 20px;
+    border: none;
+    color: white;
+    background-color: crimson;
+    margin-left: 3px;
+    cursor:pointer;
+    transition:0.5s;
+    border-radius: 4px;
+} 
+
+.upload-btn:hover {
+    background-color: turquoise;
+}

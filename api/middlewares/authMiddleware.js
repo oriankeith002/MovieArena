@@ -4,9 +4,11 @@ const prisma = require('../services/prisma');
 const asyncHandler = require('express-async-handler');
 
 const authMiddleware = asyncHandler(async(req,res,next) => {
-    const {token} = req.cookies;
+    // const {token} = req.cookies;
+    // let token;
 
-    if(token) {
+    if(req) {
+        let {token} = req.cookies;
         try {
             const decodedToken = jwt.verify(token, config.jwtSecret);
             // console.log(decodedToken)
@@ -37,4 +39,4 @@ const authMiddleware = asyncHandler(async(req,res,next) => {
 })
 
 
-module.exports = authMiddleware
+module.exports = {authMiddleware}

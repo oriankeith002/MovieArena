@@ -87,13 +87,10 @@ const MovieForm = () => {
             <textarea value={plot} onChange={ev => setPlot(ev.target.value)} />
 
             {preInput('Genres', 'Select the genres of movie')}
-            <div>
+            <div className='gcontainer'>
                 <GenreCamp selected={genres} onChange={setGenres} />
             </div>
-            <br />
-            <br />
-            <br />
-            <br />
+          
             <button className='movie-form-sub-btn'>
               SUBMIT MOVIE
             </button>

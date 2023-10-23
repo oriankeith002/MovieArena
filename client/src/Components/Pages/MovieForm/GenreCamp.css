@@ -12,4 +12,8 @@
 .genre-container {
     display: flex;
     gap: 15px;
+} 
+
+span {
+    margin-right: 5px;
 }

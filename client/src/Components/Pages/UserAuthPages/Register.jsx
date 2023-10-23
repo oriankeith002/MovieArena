@@ -13,12 +13,16 @@ const Register = () => {
   async function registerUser(event) {
     event.preventDefault();
     try {
-      await axios.post('/register', {
+      await axios.post('/user/register', {
         name,
         email,
         password
       })
       alert('Registration successful. Now go to login page');
+      setName('');
+      setEmail('');
+      setPassword('');
+      setConfirmPassword('');
     }catch(error) {
       alert('Registration failed. Please try again later');
     }

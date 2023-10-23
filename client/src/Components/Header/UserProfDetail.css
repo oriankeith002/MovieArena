@@ -4,4 +4,14 @@
     height: 48px;
     border-radius: 50%;
     cursor: pointer;
+} 
+
+.profile-area {
+    display: flex;
+    align-items: center;
+}
+
+.profile-name {
+    margin-left: 15px;
+    color: gray
 }

@@ -2,7 +2,7 @@ import React, {useState, useContext} from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import './Auth.css'
 import axios from 'axios';
-import { UserContext } from '../../SupportUtilities/UserContext';
+// import { UserContext } from '../../SupportUtilities/UserContext';
 
 const Login = () => {
 
@@ -10,7 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [redirect, setRedirect] = useState(false);
 
-  const {setUser} = useContext(UserContext) // updating context with logged in user
+  // const {setUser} = useContext(UserContext) // updating context with logged in user
 
   async function handleLoginSubmission(event) {
     event.preventDefault(); // preventing inbuilt default form submission.
@@ -21,8 +21,9 @@ const Login = () => {
     setEmail('');
     setPassword('');
     try {
-      const {data} = axios.post("/login", {email,password}) //making a post request to login
-      setUser(data); //updating user context data
+      const {data} = axios.post("/user/login", {email,password}) //making a post request to login
+      // setUser(data); //updating user context data
+      console.log(data)
       setRedirect(true);
 
     } catch (error) {

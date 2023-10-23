@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './Auth.css'
 
 const Register = () => {
@@ -9,7 +10,19 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('')
 
-
+  async function registerUser(event) {
+    event.preventDefault();
+    try {
+      await axios.post('/register', {
+        name,
+        email,
+        password
+      })
+      alert('Registration successful. Now go to login page');
+    }catch(error) {
+      alert('Registration failed. Please try again later');
+    }
+  }
 
   return (
     <div className='dark-closure'>
@@ -19,7 +32,7 @@ const Register = () => {
           <p>Make a new movies account </p>
         </div>
         <br />
-        <form className='register-form-container'>
+        <form className='register-form-container' onSubmit={registerUser}>
           <input 
             type="text"
             placeholder="User Name"
@@ -51,6 +64,9 @@ const Register = () => {
             type='submit'>
               Register
           </button>
+          <div className=''>
+            Have an account already? <Link className='login-link' to={'/login'}>Sign in</Link>
+          </div>
         </form>
       </div>
     </div>

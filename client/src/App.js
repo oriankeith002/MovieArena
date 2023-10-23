@@ -10,7 +10,7 @@ import { UserContextProvider } from './Components/SupportUtilities/UserContext';
 
 
 
-axios.defaults.baseURL = 'http://localhost:4000';
+axios.defaults.baseURL = 'http://localhost:4000/apiv1/';
 axios.defaults.withCredentials = true
 
 function App() {
@@ -22,8 +22,8 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route index element={<Landing />} />
           <Route path="/movie/:id" element={<MoviePage />} />
-          <Route path="/movie/new" element={<MovieForm />} />
-          <Route path="/movie/update/:id" element={<MovieForm />} />
+          <Route path="/movies/new" element={<MovieForm />} />
+          <Route path="/movies/:id" element={<MovieForm />} />
         </Route>
       </Routes>
     </UserContextProvider>

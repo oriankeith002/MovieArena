@@ -9,7 +9,7 @@ import './MovieForm.css';
 const MovieForm = () => {
 
   const {user} = useContext(UserContext) // getting user-profile detail
-  const {id} = useParams();
+  const {id} = useParams(); // getting id from url
   const [title, setTitle] = useState('');
   const [thumbnail, setThumbnail] = useState([]);
   const [releaseYear, setReleaseYear] = useState('');
@@ -18,6 +18,17 @@ const MovieForm = () => {
   const [plot, setPlot] = useState('');
   const [genres, setGenres] = useState([]);
   const [uploaderId, setUploaderId] = useState(''); 
+
+
+  useEffect(() => {
+    if(!id){
+      return;
+    }
+    axios.get('/movies/'+id).then(response => {
+      const {data} = response;
+    })
+  },[id])
+
 
 
   function inputHeader(text) {

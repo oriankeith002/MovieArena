@@ -1,6 +1,5 @@
 import {Link , useLocation } from "react-router-dom";
 import './AccountPageNavigation.css';
-import NavMenu from '../../Header/NavMenu';
 import userNavIcon from '../../assets/headerAssets/userNavIcon.svg';
 import userMoviesIcon from '../../assets/headerAssets/userMoviesIcon.svg';
 

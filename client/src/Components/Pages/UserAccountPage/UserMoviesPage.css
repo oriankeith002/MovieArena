@@ -1,9 +1,11 @@
 
 .umovies-page-wrapper {
     /* background-color: red; */
-    padding:40px;
+    /* padding:40px; */
     margin-top: 100px;
-    position:relative;
+    max-width: 100%;
+    /* position:relative; */
+    background-color: red;
 }
 
 
@@ -54,14 +56,19 @@
 
 
 .movie-adder {
-    background-color: rgba(58, 196, 184, 0.788);
-    position: absolute;
+    background-color: crimson;
+    /* position: absolute;
     top:0;
-    right: 0;
+    right: 0; */
     padding: 10px;
+    color: white;
+    margin-bottom: 10px;
 
 }
 
+/* .user-movies-list {
+    background-color: yellow;
+} */
 
 .editanddelete {
     display: flex;

@@ -57,21 +57,26 @@ const getAllUsers = asyncHandler(async(req,res) => {
 
 // getAUsersMovies 
 const getAUsersMoviesOnly = asyncHandler(async(req,res) => {
-    const userData = await getUserDataFromRequest(req) 
-    const id = userData.userdata.id;
 
     try {
-        // returning all users in database in variable 
-        const userMovies = await prisma.user.findUnique({
-            where:{
-                id:id,
-            },
-            select: {
-                movies:true
-            },
-        });
+        if (req.cookies.token) {
+            const userData = await getUserDataFromRequest(req) 
+            const id = userData.userdata.id;
 
-        res.json(userMovies)
+            // returning all users in database in variable 
+            const userMovies = await prisma.user.findUnique({
+                where:{
+                    id:id,
+                },
+                select: {
+                    movies:true
+                },
+            });
+
+            res.json(userMovies)
+        } else {
+            res.json(null)
+        }
 
     } catch(error) {
         throw new Error(error)
@@ -86,9 +91,6 @@ const getAUser = asyncHandler(async(req,res) => {
     const userData = await getUserDataFromRequest(req) 
 
     const id = userData.userdata.id; 
-
-    console.log(userData)
-    console.log(id.toString())
     
     try {
         // returning single user details here. 
@@ -132,23 +134,27 @@ const deleteUser = asyncHandler(async(req,res) => {
 // Updating a user 
 
 const updateAUser = asyncHandler(async(req,res) => {
-    const userData = await getUserDataFromRequest(req)
-    const id = userData.userdata.id;
-    try {
-        const user = await prisma.user.update({
-            where: {
-                id:id,
-            },
-            data: req.body,
-            select:{
-                email: true,
-                name:true,
-            }
-        })
-        res.json(user)
+    if (req.cookies.token) {
+        const userData = await getUserDataFromRequest(req)
+        const id = userData.userdata.id;
+        try {
+            const user = await prisma.user.update({
+                where: {
+                    id:id,
+                },
+                data: req.body,
+                select:{
+                    email: true,
+                    name:true,
+                }
+            })
+            res.json(user)
 
-    } catch(error) {
-        throw new Error(error);
+        } catch(error) {
+            throw new Error(error);
+        }
+    } else {
+        res.json(null)
     }
 })
 

@@ -7,13 +7,17 @@ import './UserMoviesPage.css';
 
 const UserMoviesPage = () => { 
 
-  // const [userMovies, setUserMovies] = useState([])
+  const [userMovies, setUserMovies] = useState([])
 
-  // useEffect(() => {
-  //   axios.get('/user-movies').then(({data}) => {
-  //     setUserMovies(data);
-  //   })
-  // },[])
+  useEffect(() => {
+    axios.get('/user/mymovies').then(({data}) => {
+      setUserMovies(data);
+    })
+  },[])
+
+  console.log('--- Returning movies for logged in user ----')
+  console.log(userMovies)
+  console.log('--------------------------------------------')
 
   return (
     <>
@@ -24,50 +28,27 @@ const UserMoviesPage = () => {
           Add a new movie
         </Link> 
 
-        <div className='my-movie-container'>
-          <div className='movie-thumb-container'>
-            <img className='movie-cover' src={Tstimg} alt="movie-cover" />
-          </div>
-          <div className='movie-summary-container'>
-            <h2 className='movie-title'>My Movie Title</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-              Praesentium, ut libero perferendis in cumque amet, 
-              ea nesciunt, vitae quaerat sunt quod illo maiores asperiores. 
-              Ullam consequatur qui, accusamus sit omnis dolore aliquam 
-              officia magni reiciendis odit ut fuga saepe molestias amet, 
-              iste, quaerat rem provident dolorum voluptatibus. 
-              Illo, blanditiis nesciunt.
-            </p>
-
-            <div className='editanddelete'>
-                <button className='edit-btn'>Edit  </button>
-                <button className='delete-btn'>Delete </button>
-            </div>
-          </div>
-
-        </div>
-
-        {/* <div className='user-movies-list'>
-          {userMovies.length > 0 && userMovies.map( uMovie => (
+        <div className='user-movies-list'>
+          {userMovies?.movies?.length > 0 && userMovies.movies.map( uMovie => (
             <Link to={'/movie/:id'} className='my-movie-container' key={uMovie.id}>
               <div className='movie-thumb-container'>
-                {uMovie.thumbnail.length > 0 && (
-                  <img className='movie-cover' src={'http://localhost:4000/uploads/'+uMovie.thumbnail[0]} alt="movie-cover" />
+                {uMovie?.thumbnail?.length > 0 && (
+                  <img className='movie-cover' src={'http://localhost:4000/uploads/'+uMovie?.thumbnail?.[0]} alt="movie-cover" />
                 )}
 
               </div>
               <div className='movie-summary-container'>
-                <h2 className='movie-title'>{uMovie.title}</h2>
-                <p>{uMovie.plot}</p>
+                <h2 className='movie-title'>{uMovie?.title}</h2>
+                <p>{uMovie?.plot}</p>
                 <div className='editanddelete'>
-                  <button className='edit-btn'>Edit  </button>
+                  <Link to={'/account/movie/:id'} className='edit-btn'>Edit  </Link>
                   <button className='delete-btn'>Delete </button>
                 </div>
               </div>
              
             </Link>
           ))} 
-        </div>*/}
+        </div>
       </div>
     </div>
     </>

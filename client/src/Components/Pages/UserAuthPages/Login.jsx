@@ -15,11 +15,6 @@ const Login = () => {
   async function handleLoginSubmission(event) {
     event.preventDefault(); // preventing inbuilt default form submission.
 
-    // console.log(email)
-    // console.log(password) 
-
-    // setEmail('');
-    // setPassword('');
     try {
       const {data} = await axios.post("/user/login", {email,password}) //making a post request to login
       console.log('---- Starting sending data to context -------')
@@ -33,7 +28,7 @@ const Login = () => {
       if (error) {
         alert('Login failed') // alert user incase of any error 
       }
-      throw new Error(error)
+      // throw new Error(error)
     }
   } 
 

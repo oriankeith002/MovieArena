@@ -23,11 +23,12 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path='/' element={<Layout />}>
           <Route index element={<Landing />} />
+          <Route path="/movie/:id" element={<MoviePage />} />
           <Route path="/account/" element={<UserAccountPage /> } />
           <Route path="/account/movies" element={<UserMoviesPage />} />
-          <Route path="/movie/:id" element={<MoviePage />} />
           <Route path="/movie/new" element={<MovieForm />} />
-          <Route path="/movie/:id" element={<MovieForm />} />
+          <Route path="/account/movie/:id" element={<MovieForm />} />
+
         </Route>
       </Routes>
     </UserContextProvider>

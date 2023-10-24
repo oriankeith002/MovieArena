@@ -8,7 +8,7 @@ const UserProfDetail = ({src}) => {
   // const user = {name:'John Doe'}
   console.log(user);
   return (
-    <Link to={ user?'/useraccount':'/login'} className='profile-area'>
+    <Link to={ user?'/account/':'/login'} className='profile-area'>
       <img src={src} alt='user-profile-img' className='nav-img' />
       {!!user && (
         <div className='profile-name'>

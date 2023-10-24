@@ -10,14 +10,26 @@ export function UserContextProvider(props) {
 
 
     useEffect(() => {
-        if (!user){
-            // axios.get('/user/profile').then(({data}) => {
-            //     setUser(data);
-            //     console.log('useEffect running')
-            //     setReady(true);
-            // })
+        try {
+            let isMounted = true;
+
+            if (!user){
+                axios.get('/user/profile').then(({data}) => { 
+                    if (isMounted) {
+                        setUser(data);
+                        console.log('useEffect running')
+                        setReady(true);
+                    }
+                })
+            }
+
+            return () => {
+                isMounted = false;
+            }
+        } catch (error) {
+            console.log(error);
         }
-    },[user])
+    })
 
     return (
         <UserContext.Provider value={{user,setUser,ready}}>

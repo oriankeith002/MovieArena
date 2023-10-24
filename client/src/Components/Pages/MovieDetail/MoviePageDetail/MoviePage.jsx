@@ -1,12 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './MoviePage.css'
 import CommentContainer from '../Comment/CommentContainer'
 import prof from '../../../assets/images.jpg'
-
 import MovieThumbnail from '../MovieThumbnail/MovieThumbnail'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
+import Thumb from '../../../assets/test.jpg';
+
 
 const MoviePage = () => {
-  let DateTest = new Date();
+
+
+  
+
+  const {id} = useParams();
+  const [myMovie, setMyMovie] = useState(null)
+
+  useEffect(() => {
+    if(!id){
+      return;
+    }
+    axios.get(`/movies/${id}`).then(response => {
+      setMyMovie(response.data)
+    })
+
+  },[id])
+
+
+  console.log(myMovie)
+
+  let DateTest = new Date(myMovie?.releaseDate);
   let formattedDate = DateTest.toLocaleDateString('en', {
     day: 'numeric',
     month: 'short',
@@ -17,7 +40,7 @@ const MoviePage = () => {
     minute:'numeric'
   })
 
-  
+
   console.log(DateTest)
   console.log('changing ...')
   console.log(formattedDate + ' at ' + formattedTime);
@@ -30,12 +53,24 @@ const MoviePage = () => {
         <div className='two-column-section'>
           <div className='selected-movie-info'>
             <div className='movie-graphic'>
-              <MovieThumbnail />
+              {myMovie?.thumbnail?.[0] && (
+                <MovieThumbnail src={'http://localhost:4000/uploads/'+myMovie?.thumbnail?.[0]} />
+              )}
+              {!myMovie?.thumbnail?.[0] && (
+                <MovieThumbnail src={Thumb} />
+              ) }
             </div>
             <div className='movie-info'>
-              <h1>The Childe</h1>
-              <h2>2023</h2>
-              <h2>Action/Drama/Thriller</h2>
+              <h1>{myMovie?.title}</h1>
+              <h2>
+                <span>Year : </span> {myMovie?.releaseYear}
+              </h2>
+              <h2>
+                <span>Genre : </span> {myMovie?.genres?.join(' / ') || 'No genre' }
+              </h2>
+              <h2 className="movie-ratings">
+                <span>Rating : </span> {myMovie?.rating}
+              </h2>
             </div>
           </div>
         </div>
@@ -45,12 +80,7 @@ const MoviePage = () => {
       <section className='plot-summary-section'>
         <h2>Plot</h2>
         <p>
-          Lorem, ipsum dolor sit amet consectetur 
-          adipisicing elit. Deleniti enim necessitatibus 
-          eaque itaque repellendus tempora molestias 
-          doloremque reiciendis, nam ducimus officiis 
-          esse voluptatum quod fugit earum saepe facilis 
-          ipsum nobis repellat deserunt, suscipit eos ad eveniet. Veritatis autem cumque numquam corrupti, minima quisquam sed repudiandae officia aperiam quos amet repellat.
+          {myMovie?.plot}
         </p>
         <p className='uploader'>
           <br />

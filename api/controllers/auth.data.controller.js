@@ -40,21 +40,27 @@ const login = asyncHandler(async(req,res) => {
 
 
 const getProfile = asyncHandler(async(req,res) => { 
-    const userData = await getUserDataFromRequest(req);
 
     try {
-        const currentProfile = await prisma.user.findUnique({
-            where:{
-                id:userData.userdata.id
-            },
-            select: {
-                name:true,
-                id:true,
-                email:true
-            }
-        }) 
-        console.log(currentProfile)
-        res.json(currentProfile)
+        if (req.cookies.token) {
+            const userData = await getUserDataFromRequest(req);
+
+            const currentProfile = await prisma.user.findUnique({
+                where:{
+                    id:userData.userdata.id
+                },
+                select: {
+                    name:true,
+                    id:true,
+                    email:true
+                }
+            }) 
+            console.log(currentProfile)
+            res.json(currentProfile) 
+        } else {
+            res.json(null)
+        }
+       
 
     } catch(error) {
         throw new Error(error)

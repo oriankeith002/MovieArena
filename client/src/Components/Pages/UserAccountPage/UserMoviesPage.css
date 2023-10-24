@@ -1,0 +1,153 @@
+
+.umovies-page-wrapper {
+    /* background-color: red; */
+    padding:40px;
+    margin-top: 100px;
+    position:relative;
+}
+
+
+.movie-thumb-container img {
+    /* display: none; */
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 10px;
+
+}
+
+.movie-thumb-container {
+    width: 600px;
+    height:200px;
+    margin:10px;
+    border-radius: 10px;
+}
+
+.movie-summary-container {
+    margin-top:10px;
+
+}
+
+.movie-summary-container h2 {
+    font-weight: bolder;
+}
+
+.movie-summary-container p {
+    color: black; 
+    margin-bottom: 20px;
+}
+
+.my-movie-container {
+    background-color: orange;
+    display:flex;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+} 
+
+/* .cont {
+    position:relative;
+} */
+
+.movie-adder {
+    background-color: rgba(58, 196, 184, 0.788);
+    position: absolute;
+    top:0;
+    right: 0;
+    padding: 10px;
+
+}
+
+
+.editanddelete {
+    display: flex;
+    justify-content: space-between;
+    cursor:default;
+    margin-left:10vw;
+    margin-right:10vw;
+
+
+} 
+
+.edit-btn {
+    padding: 10px;
+    background-color: green;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 10px;
+    width: 100px;
+
+    
+
+
+    
+}
+
+.delete-btn {
+    padding: 10px;
+    background-color: crimson;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 10px;
+    border-radius: 10px;
+    width: 100px;
+ 
+} 
+
+
+@media screen and (max-width:600px) {
+
+
+    .movie-thumb-container img {
+        margin-right: 10vw;
+        margin-left: 10vw;
+    
+    }
+
+
+    .my-movie-container {
+        display:flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        border-radius: 15px;
+        cursor: pointer;
+
+    } 
+
+    .movie-thumb-container {
+        width: 200px;
+        height:200px;
+        margin:10px;
+        border-radius: 10px;
+        /* align-content: center; */
+        margin-right: 10vw;
+        margin-left: 10vw;
+    
+    }
+
+    .movie-summary-container p {
+        margin-left: 10vw;
+        margin-right:10vw;
+        margin-bottom: 5px;
+
+    }
+
+
+    .editanddelete {
+        display: flex;
+        justify-content: space-between;
+        cursor:default;
+        margin-bottom: 20px;
+        margin-left:10vw;
+        margin-right:10vw;
+    
+    } 
+
+    .movie-summary-container h2 {
+        font-weight: bolder;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    
+}

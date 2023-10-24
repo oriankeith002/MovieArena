@@ -38,7 +38,7 @@ const UserAccountPage = () => {
     <div className="ua-container">
 			<AccountPageNavigation />
 
-			<div>
+			<div className="ua-arena">
 				<div className="logged-in-user-info">
 					<p>Name: <span className="user-name">Keith</span></p>
 					<p>Email: <span className="user-name">Keith@gmail.com</span></p>

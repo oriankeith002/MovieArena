@@ -10,3 +10,43 @@
     margin-left: 30px;
 
 }
+
+.ua-arena {
+    background: rgb(240,240,240);
+}
+
+.logged-in-user-info {
+    padding: 30px;
+}
+
+.logged-in-user-info p {
+    background-color: orange;
+    padding: 20px;
+    margin-bottom: 10px;
+} 
+
+.logged-in-user-info span {
+    text-align: right;
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+} 
+
+.logout-btn {
+    width:80%;
+    margin-left:10%;
+    margin: right 10%;;
+    padding:20px;
+    background-color: crimson;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    border-radius: 10px;
+    margin-bottom: 10%;
+    color: white;
+    /* margin:3px */
+} 
+
+.logout-btn:hover {
+    background-color: aqua;
+    color:brown;
+}

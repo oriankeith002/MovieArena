@@ -55,15 +55,46 @@ const getAllUsers = asyncHandler(async(req,res) => {
     }
 }) 
 
+// getAUsersMovies 
+const getAUsersMoviesOnly = asyncHandler(async(req,res) => {
+    const userData = await getUserDataFromRequest(req) 
+    const id = userData.userdata.id;
+
+    try {
+        // returning all users in database in variable 
+        const userMovies = await prisma.user.findUnique({
+            where:{
+                id:id,
+            },
+            select: {
+                movies:true
+            },
+        });
+
+        res.json(userMovies)
+
+    } catch(error) {
+        throw new Error(error)
+    }
+}) 
+
+
+
 
 // get a single user from database 
 const getAUser = asyncHandler(async(req,res) => {
-    const {id} = req.params;
+    const userData = await getUserDataFromRequest(req) 
+
+    const id = userData.userdata.id; 
+
+    console.log(userData)
+    console.log(id.toString())
+    
     try {
         // returning single user details here. 
         const user = await prisma.user.findUnique({
             where: {
-                id:id,
+                id:id
             },
             select:{
                 email: true,
@@ -71,6 +102,7 @@ const getAUser = asyncHandler(async(req,res) => {
                 movies:true,
             },
         })
+
         res.json(user)
 
     } catch(error) {
@@ -127,4 +159,5 @@ module.exports = {
     getAUser,
     deleteUser,
     updateAUser,
+    getAUsersMoviesOnly,
 }

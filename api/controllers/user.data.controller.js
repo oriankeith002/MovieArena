@@ -133,7 +133,7 @@ const deleteUser = asyncHandler(async(req,res) => {
 
 const updateAUser = asyncHandler(async(req,res) => {
     const userData = await getUserDataFromRequest(req)
-    const {id} = userData.userdata.id;
+    const id = userData.userdata.id;
     try {
         const user = await prisma.user.update({
             where: {

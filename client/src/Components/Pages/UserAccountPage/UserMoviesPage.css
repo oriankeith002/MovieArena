@@ -31,24 +31,27 @@
 
 .movie-summary-container h2 {
     font-weight: bolder;
+    margin-left: 5vw;
+    margin-right:10vw;
 }
 
 .movie-summary-container p {
     color: black; 
     margin-bottom: 20px;
+    text-align: justify;
+    margin-left: 5vw;
+    margin-right:10vw;
 }
 
 .my-movie-container {
     background-color: orange;
     display:flex;
+    flex:1;
     margin-bottom: 10px;
     border-radius: 15px;
     cursor: pointer;
 } 
 
-/* .cont {
-    position:relative;
-} */
 
 .movie-adder {
     background-color: rgba(58, 196, 184, 0.788);
@@ -130,6 +133,7 @@
         margin-left: 10vw;
         margin-right:10vw;
         margin-bottom: 5px;
+        text-align: justify;
 
     }
 

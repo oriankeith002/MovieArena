@@ -1,18 +1,18 @@
 import React, {useState, useEffect, useContext} from 'react';
 import axios from 'axios';
 import {useParams} from 'react-router';
-// import { UserContext } from '../../SupportUtilities/UserContext';
+import { UserContext } from '../../SupportUtilities/UserContext';
 import GenreCamp from './GenreCamp';
 import ThumbnailUploader from './ThumbnailUploader';
 import './MovieForm.css';
 
 const MovieForm = () => {
 
-  // const {user} = useContext(UserContext) // getting user-profile detail
-  let user = {
-    name:'John Doe',
-    id:'c299320200'
-  }
+  const {user} = useContext(UserContext) // getting user-profile detail
+  // let user = {
+  //   name:'John Doe',
+  //   id:'c299320200'
+  // }
   const {id} = useParams(); // getting id from url
   const [title, setTitle] = useState('');
   const [thumbnail, setThumbnail] = useState([]);

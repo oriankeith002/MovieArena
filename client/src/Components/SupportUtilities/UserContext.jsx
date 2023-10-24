@@ -11,11 +11,11 @@ export function UserContextProvider(props) {
 
     useEffect(() => {
         if (!user){
-            axios.get('/user/profile').then(({data}) => {
-                setUser(data);
-                console.log('useEffect running')
-                setReady(true);
-            })
+            // axios.get('/user/profile').then(({data}) => {
+            //     setUser(data);
+            //     console.log('useEffect running')
+            //     setReady(true);
+            // })
         }
     },[user])
 

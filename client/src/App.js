@@ -7,6 +7,8 @@ import MoviePage from './Components/Pages/MovieDetail/MoviePageDetail/MoviePage'
 import Landing from './Components/Pages/LandingPage/Landing';
 import MovieForm from './Components/Pages/MovieForm/MovieForm';
 import { UserContextProvider } from './Components/SupportUtilities/UserContext';
+import UserAccountPage from './Components/Pages/UserAccountPage/UserAccountPage';
+import UserMoviesPage from './Components/Pages/UserAccountPage/UserMoviesPage';
 
 
 
@@ -21,6 +23,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path='/' element={<Layout />}>
           <Route index element={<Landing />} />
+          <Route path="/account/" element={<UserAccountPage /> } />
+          <Route path="/account/movies" element={<UserMoviesPage />} />
           <Route path="/movie/:id" element={<MoviePage />} />
           <Route path="/movie/new" element={<MovieForm />} />
           <Route path="/movie/:id" element={<MovieForm />} />

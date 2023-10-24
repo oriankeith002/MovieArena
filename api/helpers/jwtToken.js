@@ -34,24 +34,6 @@ const getUserDataFromRequest = expressAsyncHandler(async(req) => {
         throw new Error("Failed to fetch user data from request")
     }
 })
-    
-    
-    
-//     async(req) => {
-
-//     try {
-//         return new Promise((resolve,reject) => {
-//             jwt.verify(req.cookies.token, config.jwtSecret, {} , async(err, userData) => {
-//                 if (err) throw err;
-//                 resolve(userData)
-//             })
-//         })
-//     } catch (error) {
-//         throw new Error(Error);
-//     }
-    
-// }
-
 
 
 module.exports = {generateToken, getUserDataFromRequest} 

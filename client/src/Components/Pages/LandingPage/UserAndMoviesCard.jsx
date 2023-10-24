@@ -15,38 +15,45 @@ const UserAndMoviesCard = (props) => {
         })
     },[])
 
-    console.log(siteData);
+    console.log(siteData.data);
+
+    // for (let i in siteData) {
+    //     console.log(i)
+    // }
 
 
+    return (
+        <div className='user-movie-info'>
 
 
-  return (
-    <div className='user-movie-info'>
+            <div className='centerer'>
+                {siteData?.data?.length > 0 && siteData?.data?.map(uploaderInfo => (
+                    
+                    <div className='OneUserMovieSection' key={uploaderInfo?.id}>
 
-
-        <div className='centerer'>
-        <h4>Keith Recommendations </h4>
-
-        <div className='movie-cards-grid'>
+                        <h4>{uploaderInfo?.name} Movie Recommendations</h4>
+                        <div className='movie-cards-grid'>
+                        {uploaderInfo?.movies?.length > 0 &&  uploaderInfo.movies.map(movieInfo => (
+                            <div className='xmovia'>
+                                <Link to={'/movie/'+movieInfo.id} key={movieInfo?.id} className='thumb-container'>
+                                    {movieInfo?.thumbnail && (
+                                        <img src={'http://localhost:4000/uploads/'+movieInfo?.thumbnail} alt={movieInfo.title} />
+                                    )}
+                                </Link>
+                                <Link to={'/movie/'+movieInfo.id} className="index-movie-title">
+                                    {movieInfo.title}
+                                </Link>
+                            </div>
+                          
+                        ))}  
+                        </div>
+                    </div>
             
-            <Link className='thumb-container'>
-                <img src={Testimg} alt='movie-thumb'/>
-            </Link>
-             
-            <div className='thumb-container'>
-                <img src={Testimg} alt='movie-thumb'/>
+                ))}
             </div>
- 
-            <div className='thumb-container'>
-                <img src={Testimg} alt='movie-thumb'/>
-            </div>
- 
-
+            
         </div>
-        </div>
-        
-    </div>
-  )
+    )
 }
 
 export default UserAndMoviesCard

@@ -30,10 +30,10 @@ const UserMoviesPage = () => {
 
         <div className='user-movies-list'>
           {userMovies?.movies?.length > 0 && userMovies.movies.map( uMovie => (
-            <Link to={'/movie/:id'} className='my-movie-container' key={uMovie.id}>
+            <Link to={'/movie/'+uMovie.id} className='my-movie-container' key={uMovie.id}>
               <div className='movie-thumb-container'>
-                {uMovie?.thumbnail?.length > 0 && (
-                  <img className='movie-cover' src={'http://localhost:4000/uploads/'+uMovie?.thumbnail?.[0]} alt="movie-cover" />
+                {uMovie?.thumbnail && (
+                  <img className='movie-cover' src={'http://localhost:4000/uploads/'+uMovie?.thumbnail} alt="movie-cover" />
                 )}
 
               </div>

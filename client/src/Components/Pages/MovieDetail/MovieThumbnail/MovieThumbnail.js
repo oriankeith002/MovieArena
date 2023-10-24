@@ -4,8 +4,8 @@ import './MovieThumbnail.css'
 const MovieThumbnail = (props) => { 
   const {style, src} = props;
   return (
-    <div className='thumb-container home-content'>
-        <a href='ds' className='browser-movie-link'>
+    <div className='thumb-containerx home-contentx'>
+        <div className='browser-movie-link'>
             <figure>
                 <img 
                   className='img-responsive' 
@@ -14,7 +14,7 @@ const MovieThumbnail = (props) => {
                   style= {style?{...style}:{width:210, height:315}}
                 />
             </figure>
-        </a>
+        </div>
     </div>
   )
 }

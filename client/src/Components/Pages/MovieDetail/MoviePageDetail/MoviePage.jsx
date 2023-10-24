@@ -53,10 +53,10 @@ const MoviePage = () => {
         <div className='two-column-section'>
           <div className='selected-movie-info'>
             <div className='movie-graphic'>
-              {myMovie?.thumbnail?.[0] && (
-                <MovieThumbnail src={'http://localhost:4000/uploads/'+myMovie?.thumbnail?.[0]} />
+              {myMovie?.thumbnail && (
+                <MovieThumbnail src={'http://localhost:4000/uploads/'+myMovie?.thumbnail} />
               )}
-              {!myMovie?.thumbnail?.[0] && (
+              {!myMovie?.thumbnail && (
                 <MovieThumbnail src={Thumb} />
               ) }
             </div>

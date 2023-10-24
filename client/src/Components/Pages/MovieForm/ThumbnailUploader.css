@@ -29,3 +29,20 @@
     background-color: turquoise;
 } 
 
+
+
+.about-thumbnails {
+
+}
+
+.uploaded-thumbs-container {
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:10px;
+
+}
+
+.thumb-grid {
+  height: 50px;
+  display: flex;
+}

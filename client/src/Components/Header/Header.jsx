@@ -8,7 +8,7 @@ import HomeIcon from '../assets/headerAssets/homeIcon.svg';
 import MoviesIcon from '../assets/headerAssets/movieIcon.svg';
 import SearchIcon from '../assets/headerAssets/searchIcon.svg';
 import ProfileImg from '../assets/profile.jpg';
-
+import { Link } from 'react-router-dom';
 
 const Header = (props) => {
 
@@ -16,10 +16,10 @@ const Header = (props) => {
                 <Nav>
                     <Logo src={LogoImage} />
                     <NavMenu>
-                        <a href='x'>
+                        <Link to={'/'}>
                             <img src={HomeIcon} alt="home-icon" />
                             <span>HOME</span>
-                        </a>
+                        </Link>
                         <a href='x'>
                             <img src={SearchIcon} alt="search-icon" />
                             <span>SEARCH</span>
@@ -37,4 +37,6 @@ const Header = (props) => {
 
 }
 
-export default Header;
+export default Header; 
+
+

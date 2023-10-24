@@ -15,10 +15,10 @@ const createMovie = asyncHandler(async(req,res) => {
         const movie = await prisma.movie.create({
             data:{
                 title:movieData.title,
-                thumbnail:movieData.thumbnail,
+                thumbnail:movieData.thumbnail.join(),
                 releaseDate:new Date(movieData.releaseDate),
                 releaseYear:movieData.releaseYear,
-                rating:movieData.rating,
+                rating:+movieData.rating,
                 plot:movieData.plot,
                 uploaderId:userData.userdata.id,
                 genres:{
@@ -135,7 +135,7 @@ const uploadByLink = asyncHandler(async(req,res) => {
     const newName = 'photo' + Date.now() + '.jpg'
     await download.image({
         url: link,
-        dest: config.path + 'api/uploads' + newName
+        dest: config.path + 'api/uploads/' + newName
     })
 
     res.json(newName);

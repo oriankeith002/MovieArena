@@ -65,6 +65,7 @@ const MovieForm = () => {
   async function saveMovie(event) {
     event.preventDefault();
     setUploaderId(user.id); // updating uploaderId 
+    // setThumbnail(thumbnail.join()) // changing thumbnail to string from array
     const movieData = {
       title,
       releaseDate,
@@ -86,7 +87,7 @@ const MovieForm = () => {
       setRedirect(true);
     } else {
       // if this is a new movie 
-      await axios.post('/movie',movieData) 
+      await axios.post('/movies/create-movie',movieData) 
       // redirect here after entering movie data
       setRedirect(true);
     }

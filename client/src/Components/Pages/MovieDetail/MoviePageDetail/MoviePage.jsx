@@ -87,7 +87,7 @@ const MoviePage = () => {
               </h2>
               <h2 className="movie-ratings">
                 <span>Rating : </span> {myMovie?.rating} / 10
-                <StarRating rating={myMovie?.rating} />
+                <div>Stars : <StarRating rating={myMovie?.rating} /></div>
               </h2>
             </div>
           </div>

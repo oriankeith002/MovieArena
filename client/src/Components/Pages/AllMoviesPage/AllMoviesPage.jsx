@@ -1,7 +1,9 @@
 import './AllMoviesPage.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-
+import StarRating from '../MovieDetail/MovieStarRating/StarRating'; 
+import TestImg from '../../assets/test.jpg';
+import { Link } from 'react-router-dom';
 
 const AllMoviesPage = () => {
 	const [moviesLoaded, setMoviesLoaded]	 = useState(false);
@@ -102,8 +104,9 @@ const AllMoviesPage = () => {
 
 
 	return (
-			<div className='all-movie-container'>
-				AllMoviesPage
+
+		<>
+			<section className='search-functions'>
 				<div className='search-component'>
 					<input 
 						className='search-box'
@@ -123,15 +126,33 @@ const AllMoviesPage = () => {
 						</select>
 					</div>
 					<div className='order-results'>
-						<label htmlFor='order'>Order</label>
+						<label htmlFor='order'>Order:</label>
 						<select id='sort' value={sortOrder} onChange={handleSortOrderChange}>
 							<option value="">None</option>
 							<option value="asc">A - Z</option>
 							<option value="desc">Z - A</option>
 						</select>
 					</div>
-				</div> 
+        		</div> 
+    		</section>
+			<section className='all-movie-container'>
 
+				<div className='all-movies-grid'>
+
+					{allMovies?.length > 0 && allMovies?.map(xmov => (
+					<Link to={'/movie/'+xmov.id} className='amovies-container' key={xmov?.id}>
+						<div className='athumb-cont'>
+							{xmov?.thumbnail && (
+								<img src={'http://localhost:4000/uploads/'+xmov?.thumbnail} alt={xmov.title} />
+							)}
+						</div>
+						<div>{xmov?.title}</div>
+						<StarRating rating={xmov?.rating}/>
+					</Link>
+
+					))}
+
+				</div>	
 
 				{/* Pagination controls  */}
 				<div>
@@ -143,7 +164,10 @@ const AllMoviesPage = () => {
 					)}
 				</div>
 
-			</div>
+			</section>
+		</>
+
+		
 	)
 }
 

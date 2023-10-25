@@ -1,39 +1,288 @@
 
 .all-movie-container {
-    margin-top: 80px;
-    background-color: red;
+    margin-top: 10px;
+    /* background-color: orange; */
     width:80vw;
-    min-height:80vh;
-    padding: 15px;
-    margin-right: auto;
-    margin-left: auto;
+    min-height:100vh;
+    height: 100vh;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    align-self: center;
+    border-radius: 10px;
+    /* margin-right: auto; */
+    /* margin-left: auto; */
+    /* position: relative; */
+    display: flex;
+    flex-direction: column;
+}
+
+.search-functions {
+    margin-top:80px;
+    /* position: fixed; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-content: center; */
+    /* justify-self: center; */
+    /* justify-content: center; */
+    align-self: center;
+    position: sticky;
+    top:70px;
+    z-index: 4;
+    width: 100vw;
+    margin-top: 1vh;
+
+    background-color:#090b13 ;
 }
 
 .search-component {
-    background-color: red;
+    /* background-color: red; */
     padding: 7px;
     margin-right: auto;
     margin-left: auto;
-    background-color: yellow;
+    /* background-color: yellow; */
     display: flex;
     justify-content: center;
+    align-self: center;
 }
 
 .search-component input {
     /* margin:auto; */
-    background-color: blue;
+    background-color: white;
     padding:8px;
     width:50vw;
     border: 1px solid rgba(249,249,249,0.3);
     border-radius: 10px;
+    color:white;
 } 
 
 .sorting-line {
     display: flex;
     justify-content: space-evenly;
-    background-color: aqua;
+    background-color: #090b13;
+    align-self: center;
+    color: white;
+    border-radius:5px;
 } 
 
 .sort-by-year {
     margin-right: 10px;
 }
+
+
+.all-movies-grid {
+    background-color: rgba(201, 29, 29, 0.587);
+    margin-top:1rem;
+    
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 3px;
+    /* display: grid; */
+    /* grid-template-columns: repeat(4, minmax(100px, 200px)); */
+    /* gap: 2rem; */
+    /* position: relative; */
+    /* padding: 5px */
+
+
+} 
+
+.amovies-container {
+    background-color: black;
+    /* max-height: 180px;
+    max-width: 180px;
+    height:160px;
+    width:160px;
+    display: flex;
+    flex: 1; */
+    /* margin-right: 3px; */
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-direction: column;
+}
+
+@media screen and (max-width:540px) {
+    .all-movies-grid {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+    }
+    .amovies-container {
+        background-color: black;
+        /* min-height: 300px; */
+        /* min-width: 300px; */
+        height:50vh;
+        width:50vw;
+        align-self: center;
+        /* height:160px; */
+        /* width:160px; */
+        display: flex;
+        flex: 1;
+        /* margin-right: 3px; */
+        /* align-items: center;
+        justify-content: center; */
+        color: white;
+        flex-direction: column;
+        /* justify-content: center; */
+        margin-left: 10vw;
+        margin-right: 10vw;
+        margin-bottom: 5vh;
+        /* margin: auto; */
+        /* align-self:center; */
+        border-radius: 10px;
+        border: 3px solid rgba(249,249,249,0.5);
+    }
+
+    .athumb-cont {
+        width:45vw;
+        height: 45vh;
+        display: flex;
+        flex: 1;
+        overflow:hidden;
+        margin:0px;
+        border-radius: 5px;
+        
+    }
+
+    .amovies-container img {
+        object-fit: cover;
+        height: 100%;
+        width:100%;
+    }
+
+}
+
+@media screen and (min-width:540.1px) {
+    .all-movies-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(100px, 200px));
+        gap: 2rem;
+        padding: 2rem;
+        /* padding-left: 2rem; */
+        /* padding-right: 2rem; */
+    }
+    .amovies-container {
+        background-color: black;
+        max-height: 180px;
+        max-width: 180px;
+        height:160px;
+        width:160px;
+        display: flex;
+        /* flex: 1; */
+        /* margin-right: 3px; */
+        align-items: center;
+        justify-content: center;
+        color: white;
+        flex-direction: column;
+        border-radius: 10px;
+        border: 3px solid rgba(249,249,249,0.5);
+    }
+
+    .athumb-cont {
+        width: 150px;
+        height: 150px;
+        display: flex;
+        flex: 1;
+        overflow:hidden;
+        margin:0px;
+        border-radius: 5px;
+    }
+
+    .amovies-container img {
+        object-fit: cover;
+        height: 100%;
+        width:100%;
+    }
+
+} 
+
+
+@media screen and (min-width:768px) {
+    .all-movies-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(100px, 200px));
+        gap: 2rem;
+        padding: 2rem;
+
+    } 
+
+    .amovies-container {
+        background-color: black;
+        max-height: 180px;
+        max-width: 180px;
+        height:160px;
+        width:160px;
+        display: flex;
+        /* flex: 1; */
+        /* margin-right: 3px; */
+        align-items: center;
+        justify-content: center;
+        color: white;
+        flex-direction: column;
+        border-radius: 10px;
+        border: 3px solid rgba(249,249,249,0.5);
+    }
+
+    .athumb-cont {
+        width: 150px;
+        height: 150px;
+        display: flex;
+        flex: 1;
+        overflow:hidden;
+        margin:0px;
+        border-radius: 5px;
+    }
+
+    .amovies-container img {
+        object-fit: cover;
+        height: 100%;
+        width:100%;
+    }
+    
+}
+
+
+
+@media screen and (min-width:1100px) {
+    .all-movies-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(100px, 200px));
+    }
+
+    .amovies-container {
+        background-color: black;
+        max-height: 180px;
+        max-width: 180px;
+        height:160px;
+        width:160px;
+        display: flex;
+        /* flex: 1; */
+        /* margin-right: 3px; */
+        align-items: center;
+        justify-content: center;
+        color: white;
+        flex-direction: column;
+        border-radius: 10px;
+        border: 3px solid rgba(249,249,249,0.5);
+
+    }
+
+    .athumb-cont {
+        width: 150px;
+        height: 150px;
+        display: flex;
+        flex: 1;
+        overflow:hidden;
+        margin:0px;
+        border-radius: 5px;
+    }
+
+    .amovies-container img {
+        object-fit: cover;
+        height: 100%;
+        width:100%;
+    }
+    
+}
+

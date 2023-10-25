@@ -34,7 +34,7 @@ const UserAndMoviesCard = (props) => {
                         <h4>{uploaderInfo?.name} Movie Recommendations</h4>
                         <div className='movie-cards-grid'>
                         {uploaderInfo?.movies?.length > 0 &&  uploaderInfo.movies.map(movieInfo => (
-                            <div className='xmovia'>
+                            <div className='xmovia' key={movieInfo.id}>
                                 <Link to={'/movie/'+movieInfo.id} key={movieInfo?.id} className='thumb-container'>
                                     {movieInfo?.thumbnail && (
                                         <img src={'http://localhost:4000/uploads/'+movieInfo?.thumbnail} alt={movieInfo.title} />

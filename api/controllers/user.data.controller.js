@@ -40,7 +40,19 @@ const getAllUsers = asyncHandler(async(req,res) => {
                 id:true,
                 email:true,
                 name:true,
-                movies:true
+                movies:{
+                    select: {
+                        id:true,
+                        title:true,
+                        thumbnail:true,
+                        releaseDate:true,
+                        releaseYear:true,
+                        rating:true,
+                        plot:true,
+                        uploaderId:true,
+                        genres:true,
+                    }
+                }
             },
         });
 
@@ -69,7 +81,19 @@ const getAUsersMoviesOnly = asyncHandler(async(req,res) => {
                     id:id,
                 },
                 select: {
-                    movies:true
+                    movies:{
+                        select: {
+                            id:true,
+                            title:true,
+                            thumbnail:true,
+                            releaseDate:true,
+                            releaseYear:true,
+                            rating:true,
+                            plot:true,
+                            uploaderId:true,
+                            genres:true,
+                        }
+                    }
                 },
             });
 
@@ -101,7 +125,19 @@ const getAUser = asyncHandler(async(req,res) => {
             select:{
                 email: true,
                 name:true,
-                movies:true,
+                movies: {
+                    select: {
+                        id:true,
+                        title:true,
+                        thumbnail:true,
+                        releaseDate:true,
+                        releaseYear:true,
+                        rating:true,
+                        plot:true,
+                        uploaderId:true,
+                        genres:true,
+                    }
+                }
             },
         })
 

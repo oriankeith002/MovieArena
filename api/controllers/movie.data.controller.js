@@ -39,18 +39,130 @@ const createMovie = asyncHandler(async(req,res) => {
 
 
 
-// get all movies from database
+// get all movies with functionality Filter , sort and pagination
+
 const getAllMovies = asyncHandler(async(req,res) => {
+
     try {
-        // returning all movies in database in variable 
-        const allmovies = await prisma.movie.findMany()
-        // returning JSON with all the movies
-        res.json(allmovies) 
+
+
+        const {title, releaseYear, sortBy, sortOrder, page, limit} = req.query;
+
+        console.log(req.query)
+
+        const query = {
+            select : {
+                id:true,
+                title:true,
+                thumbnail:true,
+                releaseDate:true,
+                releaseYear:true,
+                rating:true,
+                plot:true,
+                uploaderId:true,
+                genres:true,
+                uploadedAt:true,
+            },
+            where:{},
+            orderBy: {},
+            skip: 0,
+            take: 10,
+        };
+
+        if (title) {
+            query.where.title = {
+                contains: title.toLowerCase(),
+            };
+        }
+
+        if (releaseYear) {
+            query.where.releaseYear = parseInt(releaseYear);
+        }
+
+
+        if (sortBy && sortOrder) {
+            query.orderBy[sortBy] = sortOrder.toLowerCase() === 'asc' ? 'asc' : 'desc';
+        }
+
+        if (page && limit) {
+            query.skip = (parseInt(page) - 1) * parseInt(limit)
+            query.take = parseInt(limit);
+        } 
+
+        let allmovies;
+
+        if (Object.keys(query.where).length === 0) {
+            // No search queries return all movies
+            
+            console.log('----------------------')
+            console.log(query)
+            console.log('----------------------')
+    
+            allmovies = await prisma.movie.findMany(query);
+
+        } else {
+            console.log('----------------------')
+            console.log(query)
+            console.log('----------------------')
+            allmovies = await prisma.movie.findMany({
+                select: query.select,
+                where: query.where,
+                orderBy: query.orderBy,
+                skip: query.skip,
+                take:query.take,
+            })
+        }
+
+        // const allmovies = await prisma.movie.findMany(query);
+
+        res.json(allmovies)
 
     } catch(error) {
-        throw new Error(error)
+        console.log(error);
+        res.status(500).json({ error: 'Internal server error'});
     }
-}) 
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // get all movies from database
+// const getAllMovies = asyncHandler(async(req,res) => {
+//     try {
+//         // returning all movies in database in variable 
+//         const allmovies = await prisma.movie.findMany({
+//             select: {
+//                 id:true,
+//                 title:true,
+//                 thumbnail:true,
+//                 releaseDate:true,
+//                 releaseYear:true,
+//                 rating:true,
+//                 plot:true,
+//                 uploaderId:true,
+//                 genres:true,
+//             }
+//         })
+//         // returning JSON with all the movies
+//         res.json(allmovies) 
+
+//     } catch(error) {
+//         throw new Error(error)
+//     }
+// }) 
 
 // get a single movie from database 
 const getAMovie = asyncHandler(async(req,res) => {
@@ -60,6 +172,17 @@ const getAMovie = asyncHandler(async(req,res) => {
         const singleMovie = await prisma.movie.findUnique({
             where:{
                 id:+id,
+            },
+            select: {
+                id:true,
+                title:true,
+                thumbnail:true,
+                releaseDate:true,
+                releaseYear:true,
+                rating:true,
+                plot:true,
+                uploaderId:true,
+                genres:true,
             }
         })
         res.json(singleMovie)

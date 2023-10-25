@@ -7,6 +7,10 @@
     flex-direction: column;
 } 
 
+.kinds-of-genres {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
 
 @media screen and (max-width:400px) {
     .selected-movie-info {
@@ -18,8 +22,13 @@
         flex-direction: column;
     }
 
+    .year-of-movie {
+        display: flex;
+        flex: 1;
+    }
+
     .movie-info h2{
-        margin-top: 2px;
+        margin-top: 10px;
         line-height: 10px;
         font-size: 1em;
         margin-bottom: 15px;

@@ -9,6 +9,7 @@ import MovieForm from './Components/Pages/MovieForm/MovieForm';
 import { UserContextProvider } from './Components/SupportUtilities/UserContext';
 import UserAccountPage from './Components/Pages/UserAccountPage/UserAccountPage';
 import UserMoviesPage from './Components/Pages/UserAccountPage/UserMoviesPage';
+import AllMoviesPage from './Components/Pages/AllMoviesPage/AllMoviesPage';
 
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path='/' element={<Layout />}>
           <Route index element={<Landing />} />
+          <Route path="/movies" element={<AllMoviesPage />} />
           <Route path="/movie/:id" element={<MoviePage />} />
           <Route path="/account/" element={<UserAccountPage /> } />
           <Route path="/account/movies" element={<UserMoviesPage />} />

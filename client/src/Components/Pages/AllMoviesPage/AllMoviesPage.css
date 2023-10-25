@@ -1,0 +1,39 @@
+
+.all-movie-container {
+    margin-top: 80px;
+    background-color: red;
+    width:80vw;
+    min-height:80vh;
+    padding: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.search-component {
+    background-color: red;
+    padding: 7px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+}
+
+.search-component input {
+    /* margin:auto; */
+    background-color: blue;
+    padding:8px;
+    width:50vw;
+    border: 1px solid rgba(249,249,249,0.3);
+    border-radius: 10px;
+} 
+
+.sorting-line {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: aqua;
+} 
+
+.sort-by-year {
+    margin-right: 10px;
+}

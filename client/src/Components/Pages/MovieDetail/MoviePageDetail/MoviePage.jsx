@@ -6,6 +6,7 @@ import MovieThumbnail from '../MovieThumbnail/MovieThumbnail'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import Thumb from '../../../assets/test.jpg';
+import StarRating from '../MovieStarRating/StarRating'
 
 
 const MoviePage = () => {
@@ -28,6 +29,22 @@ const MoviePage = () => {
 
 
   console.log(myMovie)
+  const genreList = myMovie?.genres?.map(genre => genre.name)
+  console.log(genreList) 
+
+  // const starRatingOnFive = Math.ceil(myMovie.rating/2);
+  // const remainingStars = 5 - starRatingOnFive;
+
+  // console.log(starRatingOnFive)
+  // console.log(remainingStars)
+
+
+  // const yellowStar = '⭐️'.repeat(starRatingOnFive);
+  // const uncoloredStar = '☆'.repeat(remainingStars);
+  // const starRating = yellowStar + uncoloredStar;
+  // console.log(starRating);
+
+
 
   let DateTest = new Date(myMovie?.releaseDate);
   let formattedDate = DateTest.toLocaleDateString('en', {
@@ -61,15 +78,16 @@ const MoviePage = () => {
               ) }
             </div>
             <div className='movie-info'>
-              <h1>{myMovie?.title}</h1>
+              <h1 className='year-of-movie'>{myMovie?.title}</h1>
               <h2>
                 <span>Year : </span> {myMovie?.releaseYear}
               </h2>
-              <h2>
-                <span>Genre : </span> {myMovie?.genres?.join(' / ') || 'No genre' }
+              <h2 className='kinds-of-genres'>
+                <span>Genre : </span> {genreList?.join(' / ') || 'No genre' }
               </h2>
               <h2 className="movie-ratings">
-                <span>Rating : </span> {myMovie?.rating}
+                <span>Rating : </span> {myMovie?.rating} / 10
+                <StarRating rating={myMovie?.rating} />
               </h2>
             </div>
           </div>

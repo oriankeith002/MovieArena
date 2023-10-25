@@ -71,6 +71,11 @@ const Register = () => {
           <div className=''>
             Have an account already? <Link className='login-link' to={'/login'}>Sign in</Link>
           </div>
+          <div>
+            <Link to={"/"} className='reg-link'>
+              BACK TO HOME
+            </Link>
+          </div>
         </form>
       </div>
     </div>

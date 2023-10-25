@@ -8,15 +8,17 @@ const UserProfDetail = ({src}) => {
   // const user = {name:'John Doe'}
   console.log(user);
   return (
-    <Link to={ user?'/account/':'/login'} className='profile-area'>
+    <>
+    { user ? (
+    <Link to={'/account/'} className='profile-area'>
       <img src={src} alt='user-profile-img' className='nav-img' />
-      {!!user && (
-        <div className='profile-name'>
-          {user.name}
-        </div>
-      )}
+      <div className='profile-name'>
+        {user.name}
+      </div>
     </Link>
-  )
-}
+   ) : (<Link to={'/login'} className="login-btn">Login</Link>) } 
+   </>
+  
+)}
 
 export default UserProfDetail

@@ -15,3 +15,17 @@
     margin-left: 15px;
     color: gray
 }
+
+.login-btn {
+    padding:10px;
+    border-radius: 10px;
+    background-color: crimson;
+    color: white;
+    text-transform: uppercase;
+    font-weight:700;
+    
+}
+
+.login-btn:hover {
+    background-color: rgb(15, 222, 84);
+}

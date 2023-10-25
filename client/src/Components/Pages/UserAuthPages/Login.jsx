@@ -65,6 +65,12 @@ const Login = () => {
           <div className='registration-link'>
             Do not have an account yet? <Link className='reg-link' to={"/register"}>Register</Link>
           </div>
+          <div>
+            <Link to={"/"} className='reg-link'>
+              BACK TO HOME
+            </Link>
+          </div>
+          
         </form>
       </div>
   )

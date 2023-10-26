@@ -98,6 +98,10 @@ const MovieForm = () => {
     return <Navigate to={'/account/movies'} />
   }
 
+  if (!user) {
+    return;
+  }
+
   return (
     <div className='movie-form-container'>
         <form onSubmit={saveMovie} className='movie-form' >

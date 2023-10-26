@@ -1,11 +1,18 @@
 import axios from 'axios';
 import { Link, Navigate, useParams } from "react-router-dom";
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import AccountPageNavigation from './AccountPageNavigation'
 import './UserMoviesPage.css';
+import { UserContext } from '../../SupportUtilities/UserContext';
+
+
+
+
 
 const UserMoviesPage = () => { 
   const [userMovies, setUserMovies] = useState([])
+
+  const {user} = useContext(UserContext) // getting user-profile detail
 
   useEffect(() => {
     axios.get('/user/mymovies').then(({data}) => {
@@ -24,6 +31,9 @@ const UserMoviesPage = () => {
 	}
 
  
+  if(user){
+    <Navigate to={'/login'} />
+  }
 
   return (
     <>

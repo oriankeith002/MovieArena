@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './UserAndMoviesCard.css';
 import StarRating from '../MovieDetail/MovieStarRating/StarRating';
-import '../AllMoviesPage/AllMoviesPage.css';
+// import '../AllMoviesPage/AllMoviesPage.css';
 
 const UserAndMoviesCard = (props) => {
 

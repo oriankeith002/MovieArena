@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import Testimg from  '../../assets/test.jpg'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './UserAndMoviesCard.css';
-
+import StarRating from '../MovieDetail/MovieStarRating/StarRating';
+import '../AllMoviesPage/AllMoviesPage.css';
 
 const UserAndMoviesCard = (props) => {
 
@@ -16,10 +16,6 @@ const UserAndMoviesCard = (props) => {
     },[])
 
     console.log(siteData.data);
-
-    // for (let i in siteData) {
-    //     console.log(i)
-    // }
 
 
     return (
@@ -34,18 +30,18 @@ const UserAndMoviesCard = (props) => {
                         <h4>{uploaderInfo?.name} Movie Recommendations</h4>
                         <div className='movie-cards-grid'>
                         {uploaderInfo?.movies?.length > 0 &&  uploaderInfo.movies.map(movieInfo => (
-                            <div className='xmovia' key={movieInfo.id}>
-                                <Link to={'/movie/'+movieInfo.id} key={movieInfo?.id} className='thumb-container'>
+                            <Link to={'/movie/'+movieInfo?.id} className='amovies-container' key={movieInfo?.id}>
+                                <div className='athumb-cont'>
                                     {movieInfo?.thumbnail && (
-                                        <img src={'http://localhost:4000/uploads/'+movieInfo?.thumbnail} alt={movieInfo.title} />
+                                        <img src={'http://localhost:4000/uploads/'+movieInfo?.thumbnail} alt={movieInfo?.title} />
                                     )}
-                                </Link>
-                                <Link to={'/movie/'+movieInfo.id} className="index-movie-title">
-                                    {movieInfo.title}
-                                </Link>
-                            </div>
-                          
-                        ))}  
+                                </div>
+                                <div>{movieInfo?.title}</div>
+                                <StarRating rating={movieInfo?.rating}/>
+                            </Link>
+
+
+                        ))}
                         </div>
                     </div>
             

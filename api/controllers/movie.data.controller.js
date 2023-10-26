@@ -194,49 +194,82 @@ const getAMovie = asyncHandler(async(req,res) => {
 
 
 // Delete a single Movie from database 
-const deleteMovie = asyncHandler(async(req,res) => {
-    const {id} = req.params;
-    const userData = await getUserDataFromRequest(req)
+const deleteMovie = asyncHandler(async(req,res) => { 
+    if (req.cookies.token) {
 
-    try {
-        // deleting movie using id
-        const movieToDelete = await prisma.movie.delete({
-            where: {
-                id:+id,
-                uploaderId:userData.userdata.id
-            }
-        })
+    
+        const id = req.params.id;
+        const userData = await getUserDataFromRequest(req)
 
-        res.json({
-            message:`Movie ${movieToDelete.title} belonging to ${userData.name} has been deleted`,
-            data:null
-        })
-    } catch(error) {
-        throw new Error('Ensure that you own the movie') 
+        try {
+            // deleting movie using id
+            const movieToDelete = await prisma.movie.delete({
+                where: {
+                    id:+id,
+                    uploaderId:userData.userdata.id
+                }
+            })
+
+            res.json({
+                message:`Movie ${movieToDelete.title} belonging to ${userData.name} has been deleted`,
+                data:null
+            })
+        } catch(error) {
+            throw new Error('Ensure that you own the movie') 
+        } 
+    } else {
+        res.json(null)
     }
 }) 
 
 // Updating a movie
 
 const updateAMovie = asyncHandler(async(req,res) => {
-    const {id} = req.params;
-    const userData = await getUserDataFromRequest(req);
-    const updateData = req.body;
+    
+    if (req.cookies.token) {
+        const {id} = req.params;
+        const userData = await getUserDataFromRequest(req);
+        const updateData = req.body;
+    
+        // define new genre list 
+        console.log('---------------------------------------------')
+        const newGenreList = [...new Set(updateData.genres.map((genre) => (typeof genre === 'object' ? genre.name : genre )))]
+        console.log(newGenreList)
+        console.log('----------------------------------------------')
 
-    try {
-        const movieToUpdate = await prisma.movie.update({
-            where: {
-                id:+id,
-                uploaderId:userData.userdata.id
-            },
-            data: updateData
+
+
+        try {
+            const movieToUpdate = await prisma.movie.update({
+                where: {
+                    id:+id,
+                    uploaderId:userData.userdata.id
+                },
+                data:{
+                    title:updateData.title,
+                    thumbnail:updateData.thumbnail.join(),
+                    releaseDate:new Date(updateData.releaseDate),
+                    releaseYear:updateData.releaseYear,
+                    rating:+updateData.rating,
+                    plot:updateData.plot,
+                    uploaderId:userData.userdata.id,
+                    genres:{
+                        connect: newGenreList.map(genre => ({
+                            name:genre
+                        }))
+                    }
+                }
+                
+            })
             
-        })
-        
-        res.json(movieToUpdate)
+            res.json(movieToUpdate)
 
-    } catch(error) {
-        throw new Error('You do not have the rights to update movie');
+        } catch(error) {
+            throw new Error(error)
+            // throw new Error('You do not have the rights to update movie');
+        }
+    } else {
+        console.log('An Error occured')
     }
 })
 

@@ -29,7 +29,7 @@ const ThumbnailUploader = ({addedThumbnails,onChange}) => {
       </div>
 
       <div className='uploaded-thumbs-container'>
-        {addedThumbnails?.length > 0 && addedThumbnails.map(link => (
+        {addedThumbnails?.length > 0 && addedThumbnails?.map(link => (
           <div className='thumb-grid' key={link}>
             <img className='' src={'http://localhost:4000/uploads/'+link} alt='' />
           </div>

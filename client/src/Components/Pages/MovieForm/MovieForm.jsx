@@ -32,7 +32,7 @@ const MovieForm = () => {
     axios.get('/movies/'+id).then(response => {
       const {data} = response;
       setTitle(data.title);
-      setThumbnail(data.thumbnail);
+      setThumbnail([data.thumbnail]);
       setRating(data.rating)
       setGenres(data.genres)
       setReleaseDate(data.releaseDate)
@@ -82,7 +82,7 @@ const MovieForm = () => {
     
     if (id) {
       // this implies it is an update
-      await axios.put(`/movie/${id}`, movieData)
+      await axios.put(`/movies/${id}`, movieData)
       // redirect after updating movie to the movies list in user movies
       setRedirect(true);
     } else {

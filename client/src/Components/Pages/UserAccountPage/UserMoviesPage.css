@@ -1,85 +1,76 @@
 
 .umovies-page-wrapper {
-    /* background-color: red; */
-    /* padding:40px; */
     margin-top: 100px;
     max-width: 100%;
-    /* position:relative; */
-    background-color: red;
-}
-
-
-.movie-thumb-container img {
-    /* display: none; */
-    width:100%;
-    height: 100%;
-    object-fit: cover;
-    /* overflow: hidden;
-    border-radius: 10px; */
-
-}
-
-.movie-thumb-container {
-    /* max-width: 300px; */
-    /* max-height:300px; */
-    margin:10px;
-    border-radius: 10px;
-    display: flex;
-    flex:1;
-}
-
-.movie-summary-container {
-    margin-top:10px;
-
-}
-
-.movie-summary-container h2 {
-    font-weight: bolder;
-    margin-left: 5vw;
-    margin-right:10vw;
-}
-
-.movie-summary-container p {
-    color: black; 
-    margin-bottom: 20px;
-    text-align: justify;
-    margin-left: 5vw;
-    margin-right:10vw;
+    /* background-color: red; */
 }
 
 .my-movie-container {
     background-color: orange;
     display:flex;
-    flex:1;
-    margin-bottom: 10px;
-    border-radius: 15px;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 } 
+
+.movie-thumb-container {
+    height: 20vh;
+    width: 20vw;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.movie-thumb-container img {
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+
+.movie-summary-container {
+    margin-top:10px;
+}
+
+.movie-summary-container h2 {
+    font-weight: bolder;
+}
+
+.movie-summary-container p {
+    color: black; 
+    text-align: justify;
+}
+
+
 
 
 .movie-adder {
     background-color: crimson;
-    /* position: absolute;
-    top:0;
-    right: 0; */
     padding: 10px;
     color: white;
     margin-bottom: 10px;
+    align-self:center;
 
 }
 
-/* .user-movies-list {
-    background-color: yellow;
-} */
+
+.um-martial {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    padding:10px;
+    width:80vw;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    margin-bottom: 10vh;
+    border-radius: 10px;
+}
+
 
 .editanddelete {
     display: flex;
     justify-content: space-between;
-    cursor:default;
-    margin-left:10vw;
-    margin-right:10vw;
-
-
+    flex-shrink: 0;
 } 
 
 .edit-btn {
@@ -88,12 +79,9 @@
     color: white;
     text-transform: uppercase;
     border-radius: 10px;
-    width: 100px;
+    width:20vw;
+    cursor: pointer;
 
-    
-
-
-    
 }
 
 .delete-btn {
@@ -102,20 +90,13 @@
     color: white;
     text-transform: uppercase;
     border-radius: 10px;
-    border-radius: 10px;
-    width: 100px;
+    width: 20vw;
+    cursor: pointer;
  
 } 
 
 
 @media screen and (max-width:600px) {
-
-
-    .movie-thumb-container img {
-        margin-right: 10vw;
-        margin-left: 10vw;
-    
-    }
 
 
     .my-movie-container {
@@ -128,16 +109,19 @@
     } 
 
     .movie-thumb-container {
-        width: 200px;
-        height:200px;
+        width: 50vw;
+        height:50vw;
         margin:10px;
         border-radius: 10px;
-        /* align-content: center; */
         margin-right: 10vw;
         margin-left: 10vw;
+        align-self: center;
+        display: flex;
+        flex: 1;
     
-    }
+    } 
 
+   
     .movie-summary-container p {
         margin-left: 10vw;
         margin-right:10vw;
@@ -163,4 +147,31 @@
         margin-bottom: 5px;
     }
     
+} 
+
+
+@media screen and (min-width:600px) {
+
+    .movie-thumb-container {
+        width: 20vw;
+        height:20vw;
+        margin:10px;
+        border-radius: 10px;
+        margin-right: 5vw;
+        margin-left: 5vw;
+        /* align-self: center; */
+        display: flex;
+        flex-shrink: 0;
+        /* flex: 1; */
+        background-color: aqua;
+    
+    } 
+
+    .movie-summary-container p {
+        text-align: justify;
+        margin-right: 5vw;
+        font-size: smaller;
+        color:rgba(0,0,0,0.8);
+    }
+
 }

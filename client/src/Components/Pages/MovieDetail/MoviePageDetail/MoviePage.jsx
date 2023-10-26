@@ -83,7 +83,7 @@ const MoviePage = () => {
                 <span>Year : </span> {myMovie?.releaseYear}
               </h2>
               <h2 className='kinds-of-genres'>
-                <span>Genre : </span> {genreList?.join(' / ') || 'No genre' }
+                <span>Genre : </span> {genreList?.join(' / ')}
               </h2>
               <h2 className="movie-ratings">
                 <span>Rating : </span> {myMovie?.rating} / 10

@@ -129,4 +129,61 @@
 
 .the-movie-section {
     margin: 30px;
+} 
+
+
+.comment-btn {
+    padding:4px;
+    height: 50px;
+    background-color: rgb(5, 235, 120);
+    color: white;
+    border-radius: 5px;
+} 
+
+.comment-btn:hover {
+    background-color: crimson;
+}
+
+.comment-input-controls {
+    
+    margin-top:20px;
+    margin-bottom:  20px;
+    max-width: 700px;
+    padding:10px;
+    align-items: center;
+    background: #171717;
+    border-radius: 10px;
+    color:black;
+   
+} 
+
+.iform {
+    display: flex;
+    justify-content: space-between;
+    /* border-radius: 10px; */
+    color:black;
+}
+
+.comment-input {
+    height: 50px;
+    flex:1;
+    /* background-color: red; */
+    /* color:white; */
+    background-color:rgba(249,249,249,0.8);
+    border-radius: 10px;
+    color:black;
+}
+
+.add-comment-btn {
+    max-width: 700px;
+    margin:20px;
+    color: green;
+    padding:10px;
+    text-align: center;
+    text-transform: uppercase;
+    display: flex;
+    flex: 1;
+    background-color: wheat;
+    align-self: center;
+    justify-content: center;
 }

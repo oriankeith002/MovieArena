@@ -31,13 +31,18 @@ const UserAndMoviesCard = (props) => {
                         <div className='movie-cards-grid'>
                         {uploaderInfo?.movies?.length > 0 &&  uploaderInfo.movies.map(movieInfo => (
                             <Link to={'/movie/'+movieInfo?.id} className='amovies-container' key={movieInfo?.id}>
+                               
                                 <div className='athumb-cont'>
                                     {movieInfo?.thumbnail && (
                                         <img src={'http://localhost:4000/uploads/'+movieInfo?.thumbnail} alt={movieInfo?.title} />
                                     )}
                                 </div>
-                                <div>{movieInfo?.title}</div>
-                                <StarRating rating={movieInfo?.rating}/>
+
+                                <div className='movie-summary-container'>
+                                    <div>{movieInfo?.title}</div>
+                                    <StarRating rating={movieInfo?.rating}/>
+                                </div>
+                                
                             </Link>
 
 

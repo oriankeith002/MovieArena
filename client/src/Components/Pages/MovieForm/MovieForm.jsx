@@ -99,7 +99,7 @@ const MovieForm = () => {
   }
 
   if (!user) {
-    return;
+    return <Navigate to={'/login'} />
   }
 
   return (

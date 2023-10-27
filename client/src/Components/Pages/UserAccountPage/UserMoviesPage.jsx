@@ -21,20 +21,27 @@ const UserMoviesPage = () => {
   },[])
 
 
-  const handleRefresh = () => {
-    window.location.reload()
-  }
+  // const handleRefresh = () => {
+  //   window.location.reload()
+  // }
 
   const deleteHandler = async(movieId) => {
 		await axios.delete(`/movies/${movieId}`);
-    handleRefresh()
+    // updating the list after deleting movie instead of refreshing page
+    // setUserMovies((prevUserMovies) => prevUserMovies.filter((movie) => movie.id !== movieId))
+
+    setUserMovies((prevUserMovies) => {
+      const updatedMovies = { ...prevUserMovies}
+      updatedMovies.movies = updatedMovies.movies.filter((movie) => movie.id !== movieId)
+      return updatedMovies;
+    })
 	}
 
  
-  if(user){
-    <Navigate to={'/login'} />
-  }
-
+  if(!user || typeof user !== 'object' || Object.keys(user).length === 0){
+    return <Navigate to={'/login'} />
+  } 
+  
   return (
     <>
       <AccountPageNavigation />

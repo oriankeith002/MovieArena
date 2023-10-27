@@ -17,7 +17,10 @@
     background-color: black;
     align-items: center;
     justify-content: center;
+    height: 160px;
+    width: 160px;
     color: white;
+    display: flex;
     flex-direction: column;
     box-shadow: rgb(0 0 0 /69%) 0px 26px 30px -10px, rgb(0 0 0 /73%) 0px 16px 10px -10px;
     transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
@@ -49,34 +52,38 @@
     } 
 
     .amovies-container {
-        background-color: black;
-        max-height: 40vh;
-        max-width: 40vw;
-        height:160px;
-        width:160px;
+        background-color: red;
+        height: 50vw;
+        width: 50vw;
+        /* height:160px; */
+        /* width:160px; */
+        margin-right:10vw;
+        margin-left:10vw;
         align-self: center;
         display: flex;
-        flex: 1;
+        /* flex: 1; */
         color: white;
         flex-direction: column;
         /* margin-left: 10vw;
         margin-right: 10vw; */
-        margin-bottom: 5vh;
+        /* margin-bottom: 5vh; */
         border-radius: 10px;
         border: 3px solid rgba(249,249,249,0.5);
     }
 
     .athumb-cont {
-        max-width: 35vw;
-        max-height:35vh;
-        width: 150px;
-        height: 150px;
+        /* max-width: 35vw; */
+        /* max-height:35vh; */
+        width: 30vw;
+        height: 30vw;
+        /* overflow:hidden; */
+        margin-left: 10vw;
+        margin-right: 10vw;
         display: flex;
         flex: 1;
-        overflow:hidden;
-        /* margin-left: 2.5vw;
-        margin-right: 2.5vw; */
         border-radius: 5px;  
+    
+
     }
 
     .amovies-container img {
@@ -92,6 +99,22 @@
         margin-right: 10vw;
     }
 
+
+    .movie-summary-container{
+        display: flex;
+        flex-direction: column;
+        flex:1;
+        justify-self: center;
+        align-self: center;
+    }
+    .amovies-container div {
+        display: flex;
+        justify-content: center;
+    }
+    .amovies-container span {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 
@@ -130,12 +153,12 @@
     }
 
     .athumb-cont {
-        width: 150px;
-        height: 150px;
-        display: flex;
-        flex: 1;
+        width: 20vw;
+        height: 20vh;
+        /* display: flex; */
+        /* flex: 1; */
         overflow:hidden;
-        margin:0px;
+        /* margin:0px; */
         border-radius: 5px;
     }
 

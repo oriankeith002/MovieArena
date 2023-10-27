@@ -50,7 +50,7 @@ const MoviePage = () => {
     event.preventDefault();
 
     try {
-      await axios.post(`/comments/addcomment/${id}`,{newComment});
+      await axios.post(`/comments/addcomment/${id}`,{comment:newComment});
       setNewComment('');
      
     } catch(error) {

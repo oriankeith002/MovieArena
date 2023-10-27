@@ -2,6 +2,18 @@
 
 
 # Introduction 
+This is the final project presentation i have developed after taking on a Full stack software development course with Tunga under the Tech Impact Academy. I have learnt a lot in the past months and I would love to extend my great appreciation to the people below: 
+
+Many thanks to:
+**Instructors**
+```
+Hans Rijk, Charles Kato, Simon Peter Ojok
+```
+**Classmates**
+```
+Humphrey, Carol, Smith , Steven, Jerry
+```
+*Great appreciation for the knowledge sharing, learning and collaboration* 
 
 ## Requirements
 To successfully  run the project the following applications are required on your computer system. 

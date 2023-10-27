@@ -39,7 +39,7 @@ const MoviePage = () => {
     } catch(error) {
       console.log(error);
     }
-  },[id])
+  },[id,myCommentData])
 
 
 

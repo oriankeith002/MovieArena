@@ -1,11 +1,12 @@
 import React, {useState, useContext} from 'react'
-import { Link, Navigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import './Auth.css'
 import axios from 'axios';
 import { UserContext } from '../../SupportUtilities/UserContext';
 
 const Login = () => {
 
+  const navigate = useNavigate()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [redirect, setRedirect] = useState(false);
@@ -33,7 +34,7 @@ const Login = () => {
   } 
 
   if (redirect) {
-    return <Navigate to={"/"} />
+    navigate('/')
   }
 
   return (

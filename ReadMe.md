@@ -1,6 +1,3 @@
-[](https://youtu.be/CbscEZX5r_A )
-
-
 # Introduction 
 This is the final project presentation i have developed after taking on a Full stack software development course with Tunga under the Tech Impact Academy. I have learnt a lot in the past months and I would love to extend my great appreciation to the people below: 
 
@@ -112,4 +109,11 @@ npm start
 ## The Application 
 Visit the Link : https://youtu.be/CbscEZX5r_A
 
-<Video src="https://www.youtube.com/watch?v=CbscEZX5r_A" controls="controls" style="max-width: 800px;"></Video>
+<Video src="https://www.youtube.com/watch?v=CbscEZX5r_A" controls="controls" style="max-width: 800px;"></Video> 
+
+
+## Todo
+- [ ] Code Refactoring
+- [ ] Improve User Responsiveness 
+- [ ] Add User Interaction feedback for data entries
+- [ ] Error Handling and User Error messaging.

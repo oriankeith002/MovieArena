@@ -15,6 +15,7 @@ model User {
   name String?
   password String?
   movies Movie[] @relation("UserMovies")
+  commentsOnMovies Comment[] @relation("UserComments")
 
 } 
 
@@ -30,6 +31,7 @@ model Movie {
   genres Genre[] @relation("MovieGenres")
   releaseDate DateTime?
   uploadedAt DateTime @default(now()) @db.Timestamp()
+  movieComments Comment[] @relation("MovieComments")
 
 }
 
@@ -40,3 +42,13 @@ model Genre {
 
 }
 
+model Comment {
+  id Int @id @default(autoincrement())
+  comment String @db.LongText
+  commentedOnMovieId  Int
+  commentedOnMovie Movie @relation("MovieComments",fields: [commentedOnMovieId], references: [id], onDelete: Cascade)
+  commentorId String
+  commentor User @relation("UserComments",fields: [commentorId], references:[id], onDelete: Cascade)
+  commentedAt DateTime @default(now()) @db.Timestamp()
+
+}

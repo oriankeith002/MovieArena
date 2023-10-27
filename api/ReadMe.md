@@ -47,6 +47,7 @@ We have a users table and a movies table
 - [ ] Movie Model 
 - [ ] User Model 
 - [ ] Genre Model
+- [ ] Comment Model
 
  
 

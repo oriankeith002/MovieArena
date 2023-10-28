@@ -11,7 +11,7 @@ import UserAccountPage from './Components/Pages/UserAccountPage/UserAccountPage'
 import UserMoviesPage from './Components/Pages/UserAccountPage/UserMoviesPage';
 import AllMoviesPage from './Components/Pages/AllMoviesPage/AllMoviesPage';
 
-
+// import context here to control pages :
 
 axios.defaults.baseURL = 'http://localhost:4000/apiv1';
 axios.defaults.withCredentials = true

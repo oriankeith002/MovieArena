@@ -117,3 +117,4 @@ Visit the Link : https://youtu.be/CbscEZX5r_A
 - [ ] Improve User Responsiveness 
 - [ ] Add User Interaction feedback for data entries
 - [ ] Error Handling and User Error messaging
+- [ ] Security Context
